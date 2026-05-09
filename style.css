@@ -1,7 +1,4 @@
 .contact-form label {
-  font-size: 40px;
+  font-size: 40px !important;
 }
 
-body {
-  background-color: yellow;
-}

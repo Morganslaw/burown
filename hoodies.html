@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoodies — BeUrOwn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #0a0a0a;
+    --green: #1a4a2e;
+    --green-light: #2d6e46;
+    --green-accent: #3a8a58;
+    --white: #f5f3ef;
+    --grey: #888;
+    --border: rgba(245,243,239,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 2.5rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 37px; height: 55px;
+    position: relative; flex-shrink: 0;
+  }
+
+  .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+
+  .nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--green-accent); }
+
+  .nav-cta {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white) !important;
+    opacity: 1 !important;
+    border: 1px solid var(--green) !important;
+    padding: 0.5rem 1rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--green) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 1.5px; background: var(--white);
+    transition: all 0.3s;
+  }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    padding: 12rem 2.5rem 5rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .page-header-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(26,74,46,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--green-accent);
+    text-decoration: none;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    position: relative; z-index: 2;
+  }
+  .back-link:hover { opacity: 1; }
+  .back-link::before { content: '←'; font-size: 0.9rem; }
+
+  .page-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 1rem;
+    position: relative; z-index: 2;
+  }
+
+  .page-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--white);
+    position: relative; z-index: 2;
+  }
+
+  .page-sub {
+    margin-top: 1.2rem;
+    font-size: 0.88rem;
+    color: rgba(245,243,239,0.5);
+    letter-spacing: 0.05em;
+    position: relative; z-index: 2;
+  }
+
+  .coming-soon-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 1px solid var(--green);
+    color: var(--green-accent);
+    font-size: 0.62rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    margin-top: 1.5rem;
+    position: relative; z-index: 2;
+  }
+
+  /* ── HOODIE CATEGORIES ── */
+  .categories-section {
+    padding: 6rem 2.5rem;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .category-card {
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+    color: var(--white);
+  }
+
+  .category-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--green);
+    opacity: 0.05;
+    transition: opacity 0.4s;
+  }
+
+  .category-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.92) 100%);
+    pointer-events: none;
+  }
+
+  .category-card:hover::before { opacity: 0.15; }
+
+  .category-card:hover .category-arrow {
+    transform: translateX(6px);
+    opacity: 1;
+  }
+
+  /* Big letter watermark */
+  .category-watermark {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -60%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(8rem, 18vw, 14rem);
+    color: rgba(245,243,239,0.04);
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+    transition: color 0.4s;
+    z-index: 0;
+  }
+
+  .category-card:hover .category-watermark {
+    color: rgba(58,138,88,0.07);
+  }
+
+  .category-content {
+    position: relative; z-index: 2;
+  }
+
+  .category-badge {
+    display: inline-block;
+    border: 1px solid var(--green);
+    color: var(--green-accent);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .category-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+
+  .category-desc {
+    font-size: 0.75rem;
+    color: rgba(245,243,239,0.5);
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .category-arrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    display: flex; align-items: center; gap: 0.5rem;
+    transition: transform 0.3s, opacity 0.3s;
+    opacity: 0.7;
+  }
+
+  .category-arrow::after { content: '→'; }
+
+  /* ── EMAIL SECTION ── */
+  .notify-section {
+    border-top: 1px solid var(--border);
+    padding: 6rem 2.5rem;
+    text-align: center;
+  }
+
+  .notify-inner { max-width: 600px; margin: 0 auto; }
+
+  .notify-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .notify-sub {
+    font-size: 0.88rem;
+    color: rgba(245,243,239,0.5);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .email-form {
+    display: flex;
+    max-width: 460px;
+    margin: 0 auto;
+    border: 1px solid var(--border);
+  }
+
+  .email-form input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 1rem 1.2rem;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+  }
+
+  .email-form input::placeholder { color: rgba(245,243,239,0.3); }
+
+  .email-form button {
+    background: var(--green);
+    border: none;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .email-form button:hover { background: var(--green-light); }
+
+  .form-note {
+    font-size: 0.68rem;
+    color: rgba(245,243,239,0.3);
+    margin-top: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .success-msg {
+    display: none;
+    color: var(--green-accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.8rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--white);
+    opacity: 0.6;
+  }
+
+  .footer-copy {
+    font-size: 0.65rem;
+    color: rgba(245,243,239,0.3);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-links {
+    display: flex; gap: 1.5rem; list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,243,239,0.35);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--green-accent); }
+
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .page-header { padding: 9rem 1.5rem 3rem; }
+
+    .categories-section { padding: 4rem 1.5rem; }
+    .categories-grid { grid-template-columns: 1fr; }
+    .category-card { aspect-ratio: 4/3; }
+
+    .notify-section { padding: 4rem 1.5rem; }
+
+    footer {
+      padding: 2rem 1.5rem;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .email-form { flex-direction: column; }
+    .email-form button { width: 100%; }
+  }
+
+  .nav-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    background: var(--black);
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    z-index: 99;
+  }
+
+  .nav-open .nav-links a {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <img src="logo.png" alt="BeUrOwn logo"/>
+    </div>
+    <span class="nav-wordmark">BeUrOwn</span>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <a href="index.html#shop" class="back-link">&nbsp;Back to Shop</a>
+  <p class="page-eyebrow">BeUrOwn · Stylewear</p>
+  <h1 class="page-title">Hoodies</h1>
+  <p class="page-sub">Clean cuts. Bold statements. Made for those who refuse to be anyone but themselves.</p>
+  <div class="coming-soon-banner">Coming Soon — Drop Launching 2025</div>
+</div>
+
+
+<!-- CATEGORIES -->
+<section class="categories-section">
+  <div class="categories-grid reveal">
+
+    <!-- Male Hoodies -->
+    <div class="category-card">
+      <div class="category-watermark">M</div>
+      <div class="category-content">
+        <span class="category-badge">Coming Soon</span>
+        <h2 class="category-title">Male<br>Hoodies</h2>
+        <p class="category-desc">Built for strength. Designed for identity. Cut for the man who owns his story.</p>
+        <span class="category-arrow">Notify Me </span>
+      </div>
+    </div>
+
+    <!-- Female Hoodies -->
+    <div class="category-card">
+      <div class="category-watermark">F</div>
+      <div class="category-content">
+        <span class="category-badge">Coming Soon</span>
+        <h2 class="category-title">Female<br>Hoodies</h2>
+        <p class="category-desc">Soft lines. Strong statement. Wear your vision, your way.</p>
+        <span class="category-arrow">Notify Me </span>
+      </div>
+    </div>
+
+    <!-- Unisex Hoodies -->
+    <div class="category-card">
+      <div class="category-watermark">U</div>
+      <div class="category-content">
+        <span class="category-badge">Coming Soon</span>
+        <h2 class="category-title">Unisex<br>Hoodies</h2>
+        <p class="category-desc">No labels. No limits. Just you, BeUrOwn.</p>
+        <span class="category-arrow">Notify Me </span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- NOTIFY -->
+<section class="notify-section">
+  <div class="notify-inner reveal">
+    <h2 class="notify-title">Be first to know<br>when they drop.</h2>
+    <p class="notify-sub">Sign up and we'll hit you with the launch date before anyone else.</p>
+    <form class="email-form" onsubmit="handleSignup(event)">
+      <input type="email" id="emailInput" placeholder="Your email address" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="form-note">No spam. Just the drop date, first.</p>
+    <p class="success-msg" id="successMsg">✓ You're on the list. Stay ready.</p>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">BeUrOwn</div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 BeUrOwn. beurown.co.uk · beurown.com</p>
+</footer>
+
+
+<script>
+  function toggleNav() {
+    document.body.classList.toggle('nav-open');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  function handleSignup(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Done';
+    btn.style.background = 'var(--green-light)';
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('emailInput').value = '';
+  }
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.borderBottomColor = window.scrollY > 50
+      ? 'rgba(26,74,46,0.3)'
+      : 'rgba(245,243,239,0.1)';
+  });
+</script>
+
+</body>
+</html>

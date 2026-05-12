@@ -21,7 +21,7 @@
   transform: translateY(-4px);
   box-shadow: 0 8px 22px rgba(0, 196, 107, 0.35);
   color: #00c46b !important;
-  cursor: zoom-in;
+  cursor: url('notify-green-arrow.png') 0 0, pointer;
 }
 
 .product-card:hover .product-card-badge {

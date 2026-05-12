@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 .contact-form label {
   font-size: 26px;
 }
@@ -35,6 +37,7 @@
 }
 
 .product-card-label {
+  font-family: 'Great Vibes', cursive;
   font-size: 24px;
   font-weight: 600;
   position: relative;

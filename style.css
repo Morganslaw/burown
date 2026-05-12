@@ -6,12 +6,12 @@
 .product-card:visited,
 .product-card:active {
   color: #fff !important;
-  text-decoration: none;
 }
 
 .product-card {
   display: block;
   cursor: pointer;
+  text-decoration: none;
   transition: transform 0.25s ease,
               box-shadow 0.25s ease,
               color 0.25s ease;
@@ -37,5 +37,21 @@
 .product-card-label {
   font-size: 24px;
   font-weight: 600;
+  position: relative;
+  display: inline-block;
 }
 
+.product-card-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background: #00c46b;
+  transition: width 0.25s ease;
+}
+
+.product-card:hover .product-card-label::after {
+  width: 100%;
+}

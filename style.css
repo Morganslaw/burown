@@ -20,7 +20,7 @@
 .product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 22px rgba(0, 196, 107, 0.35);
-  color: #00c46b !important;
+  color: #00a85d !important;
 }
 
 .product-card:hover .product-card-badge {

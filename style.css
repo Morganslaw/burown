@@ -3,15 +3,21 @@
 }
 
 .product-card {
+  display: block;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              color 0.25s ease;
 }
 
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 22px rgba(0, 196, 107, 0.35); /* green glow */
+  color: #00c46b; /* bright green text */
 }
 
-.product-card {
-  display: block;
+.product-card:hover .product-card-badge {
+  background: #00c46b;
+  color: #fff;
+  transition: background 0.25s ease, color 0.25s ease;
 }

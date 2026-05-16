@@ -180,3 +180,36 @@
 .product-card:hover .product-card-icon {
   color: rgba(0, 196, 107, 0.2);
 }
+
+/* Ensure the categories container builds clean, standard grids */
+.categories-grid, .product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Generates 2 equal columns side by side */
+  gap: 1px;                             /* Creates that slick 1px thin separator line */
+  background: var(--border);            /* The underlying line color */
+  border: 1px solid var(--border);      /* Outside bounding box line */
+  margin-top: 5rem;
+}
+
+/* Master card logic: Cleanly center text and design elements */
+.product-card {
+  background: var(--black);
+  aspect-ratio: 3/4;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;      /* Centers elements horizontally */
+  justify-content: center;   /* Centers elements vertically */
+  gap: 1.5rem;               /* Clean spacing between the Icon letter and Label */
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Screen size control: Drop down to 1 single column on mobile devices */
+@media (max-width: 768px) {
+  .categories-grid, .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

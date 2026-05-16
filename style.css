@@ -80,3 +80,103 @@
 .product-card:hover .product-card-label::after {
   width: 100%;
 }
+
+/* ==========================================================================
+   PRODUCT CARD — GLOBAL MASTER VERSION
+   ========================================================================== */
+
+.product-card,
+.product-card:visited,
+.product-card:active {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--black);
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; /* Pointer cursor enabled globally */
+
+  /* Hover motion + glow */
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease,
+              color 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 196, 107, 0.35); /* Green glow edge */
+  color: #00a85d !important;
+}
+
+/* Green overlay tint */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--green);
+  opacity: 0.04;
+  transition: opacity 0.3s;
+}
+
+.product-card:hover::before {
+  opacity: 0.12;
+}
+
+/* Badge hover flip (if used) */
+.product-card:hover .product-card-badge {
+  background: #00c46b;
+  color: #fff;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Icon / Large Letter */
+.product-card-icon {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem; /* Match your index page font layout */
+  color: rgba(245,243,239,0.06);
+  line-height: 1;
+  transition: color 0.25s ease;
+}
+
+/* Label underline animation */
+.product-card-label {
+  font-size: 0.62rem;          /* Match the refined uppercase index size */
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(245,243,239,0.5); /* Boosted visibility slightly from 0.3 */
+  position: relative;
+  display: inline-block;
+  transition: color 0.25s ease;
+}
+
+/* Left-to-right scrolling underline bar under the letter/label */
+.product-card-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 3px;
+  background: #00c46b;
+  transition: width 0.25s ease;
+}
+
+.product-card:hover .product-card-label::after {
+  width: 100%;
+}
+
+/* Turn text fully vibrant when parent box is hovered */
+.product-card:hover .product-card-label {
+  color: #fff;
+}
+.product-card:hover .product-card-icon {
+  color: rgba(0, 196, 107, 0.2);
+}

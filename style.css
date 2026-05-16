@@ -191,83 +191,127 @@
   margin-top: 5rem;
 }
 
-* ==========================================================================
-   PRODUCT CARD LAYOUT FIX (PIC 1 STYLE)
+/* ==========================================================================
+   HOMEPAGE GRID CARDS - EDITORIAL LOOK (PIC 2 STYLE)
    ========================================================================== */
 
-/* The Card Box Container */
+/* The outer grid container box layout rule */
+.categories-grid, .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 side-by-side squares on desktop */
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+/* Master Box Configuration */
 .product-card {
-  background: var(--black);
-  aspect-ratio: 3/4;
-  display: flex; 
+  background: #0a0a0a;
+  aspect-ratio: 4/5; /* Slightly taller to comfortably fit paragraph text lines */
+  padding: 3rem 2.5rem;
+  display: flex;
   flex-direction: column;
-  align-items: center;      
-  justify-content: center;   
+  align-items: flex-start;    /* 👈 Hard-aligns all elements to the left edge */
+  justify-content: flex-end;  /* 👈 Anchors content elements toward the bottom */
   position: relative;
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
+  border: 1px solid var(--border, #1a1a1a);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Green Highlight Edge on Hover */
+/* Slick Green Hover Glow Trim Box */
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 22px rgba(0, 196, 107, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
+  border-color: rgba(0, 196, 107, 0.3);
 }
 
-/* The Giant Script Background Letter */
+/* Giant Script Font Background Letter Asset */
 .product-card-icon {
-  font-family: 'Great Vibes', cursive !important; /* Forces the handwriting font */
-  font-size: 11rem !important;                   /* Makes it huge */
-  color: rgba(245, 243, 239, 0.05) !important;   /* Keeps it very faint */
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 14rem !important;
+  color: rgba(245, 243, 239, 0.03) !important; /* Elegant faint backdrop presentation */
   line-height: 1;
-  position: absolute !important;                  /* Layers it behind the text */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute !important;
+  top: 35%; /* Positioned higher up inside the square frame layout */
+  right: 10%;
   z-index: 1;
   pointer-events: none;
-}
-
-/* The Clean Text Label on Top */
-.product-card-label {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.68rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(245, 243, 239, 0.3);
-  position: relative;
-  display: inline-block;
-  z-index: 2; /* Sits directly on top of the big letter */
   transition: color 0.25s ease;
 }
-
-/* The Left-to-Right Underline Bar */
-.product-card-label::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: #00c46b;
-  transition: width 0.25s ease;
+.product-card:hover .product-card-icon {
+  color: rgba(0, 196, 107, 0.05) !important; /* Glows faint green on hover */
 }
 
-/* Hover Animations */
-.product-card:hover .product-card-label {
-  color: #fff !important;
+/* Minimalist Green Outline Top Badge Style */
+.product-card-badge {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #00c46b;
+  border: 1px solid rgba(0, 196, 107, 0.25);
+  padding: 0.3rem 0.6rem;
+  margin-bottom: auto; /* Pushes the badge perfectly to the top left corner */
+  z-index: 2;
 }
 
-.product-card:hover .product-card-label::after {
-  width: 100%;
+/* Elegant Serif Core Headers */
+.product-card-title {
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #f5f3ef;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column; /* Splitting names cleanly into separate lines */
+  z-index: 2;
 }
 
-/* Screen size control: Drop down to 1 single column on mobile devices */
-@media (max-width: 768px) {
+/* Left-Aligned Paragraph Copy Styles */
+.product-card-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(245, 243, 239, 0.5);
+  margin: 0 0 2rem 0;
+  z-index: 2;
+}
+
+/* Editable Action Row Callout Link */
+.product-card-action {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 2;
+  transition: color 0.25s ease;
+}
+.product-card:hover .product-card-action {
+  color: #00c46b; /* Highlights green when card is hovered */
+}
+
+/* Interactive Link Arrow Element Indicator */
+.action-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.product-card:hover .action-arrow {
+  transform: translateX(4px); /* Shifts right subtly on hover */
+}
+
+/* Responsive Rule: Drop down to single stack cards on mobile viewports */
+@media (max-width: 992px) {
   .categories-grid, .product-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
 }
 }

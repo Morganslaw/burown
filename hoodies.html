@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Hoodies — BeUrOwn</title>
+
+<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Global Stylesheet -->
+<link rel="stylesheet" href="style.css">
 
 <style>
   :root {
@@ -180,7 +186,7 @@
     border: 1px solid var(--border);
   }
 
-  .category-card {
+  .product-card {
     background: var(--black);
     position: relative;
     overflow: hidden;
@@ -195,7 +201,7 @@
     color: var(--white);
   }
 
-  .category-card::before {
+  .product-card::before {
     content: '';
     position: absolute; inset: 0;
     background: var(--green);
@@ -203,82 +209,15 @@
     transition: opacity 0.4s;
   }
 
-  .category-card::after {
+  .product-card::after {
     content: '';
     position: absolute; inset: 0;
     background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.92) 100%);
     pointer-events: none;
   }
 
-  .category-card:hover::before { opacity: 0.15; }
-
-  .category-card:hover .category-arrow {
-    transform: translateX(6px);
-    opacity: 1;
-  }
-
-  /* Big letter watermark */
-  .category-watermark {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -60%);
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(8rem, 18vw, 14rem);
-    color: rgba(245,243,239,0.04);
-    line-height: 1;
-    pointer-events: none;
-    white-space: nowrap;
-    transition: color 0.4s;
-    z-index: 0;
-  }
-
-  .category-card:hover .category-watermark {
-    color: rgba(58,138,88,0.07);
-  }
-
-  .category-content {
-    position: relative; z-index: 2;
-  }
-
-  .category-badge {
-    display: inline-block;
-    border: 1px solid var(--green);
-    color: var(--green-accent);
-    font-size: 0.55rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    padding: 0.25rem 0.6rem;
-    margin-bottom: 1rem;
-  }
-
-  .category-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: 0.6rem;
-  }
-
-  .category-desc {
-    font-size: 0.75rem;
-    color: rgba(245,243,239,0.5);
-    letter-spacing: 0.05em;
-    line-height: 1.6;
-    margin-bottom: 1.2rem;
-  }
-
-  .category-arrow {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--green-accent);
-    display: flex; align-items: center; gap: 0.5rem;
-    transition: transform 0.3s, opacity 0.3s;
-    opacity: 0.7;
-  }
-
-  .category-arrow::after { content: '→'; }
+  .product-card:hover::before { opacity: 0.15; }
+ 
 
   /* ── EMAIL SECTION ── */
   .notify-section {
@@ -513,26 +452,19 @@
   <div class="categories-grid reveal">
 
     <!-- Male Hoodies -->
-    <a href="hoodies-male.html" class="category-card">
-      <div class="category-watermark">M</div>
-      <div class="category-content">
-        <span class="category-badge">Coming Soon</span>
-        <h2 class="category-title">Male<br>Hoodies</h2>
-        <p class="category-desc">Built for strength. Designed for identity. Cut for the man who owns his story.</p>
-        <span class="category-arrow">View Collection </span>
-      </div>
-    </a>
+    <a href="male-hoodies.html" class="product-card">
+    <div class="product-card-icon">M</div>
+    <div class="product-card-label">Male Hoodies</div>
+    <div class="product-card-badge">Shop</div>
+</a>
+
 
     <!-- Female Hoodies -->
-    <a href="hoodies-female.html" class="category-card">
-      <div class="category-watermark">F</div>
-      <div class="category-content">
-        <span class="category-badge">Coming Soon</span>
-        <h2 class="category-title">Female<br>Hoodies</h2>
-        <p class="category-desc">Soft lines. Strong statement. Wear your vision, your way.</p>
-        <span class="category-arrow">View Collection </span>
-      </div>
-    </a>
+    <a href="female-hoodies.html" class="product-card">
+    <div class="product-card-icon">M</div>
+    <div class="product-card-label">Male Hoodies</div>
+    <div class="product-card-badge">Shop</div>
+</a>
 
   </div>
 </section>

@@ -848,23 +848,69 @@
     <p class="success-msg" id="successMsg">✓ You're on the list. Stay ready.</p>
   </div>
 
-  <div class="product-grid reveal">
-    
+ <div class="shop-inner reveal">
+    <div class="coming-soon-badge">Coming Soon</div>
+    <h2 class="shop-tagline">The drop<br>is almost here.</h2>
+    <p class="shop-sub">
+      Our first collection is in the works. Hoodies. T-Shirts. Fitness Gear.<br>
+      Sign up to be first in line when we launch.
+    </p>
+
+    <form class="email-form" onsubmit="handleSignup(event)">
+      <input type="email" id="emailInput" placeholder="Your email address" required>
+      <button type="submit">Notify Me</button>
+    </form>
+    <p class="form-note">No spam. Just the drop date, first.</p>
+    <p class="success-msg" id="successMsg">✓ You're on the list. Stay ready.</p>
+  </div>
+
+  <div class="categories-grid reveal">
+
     <a href="hoodies.html" class="product-card">
-      <div class="product-card-icon">H</div>
-      <div class="product-card-label">Hoodies</div>
-      <div class="product-card-badge">Coming Soon</div>
-  </a>
-    <a href="tshirts.html" class="product-card">
-      <div class="product-card-icon">T</div>
-      <div class="product-card-label">T-Shirts</div>
-      <div class="product-card-badge">Coming Soon</div>
+        <div class="product-card-icon">H</div>
+        <div class="product-card-badge">Coming Soon</div>
+        <h3 class="product-card-title">
+            <span>Male & Female</span>
+            <span>Hoodies</span>
+        </h3>
+        <p class="product-card-desc">
+            Clean fit. Bold message. Made for those who let their style do the talking.
+        </p>
+        <div class="product-card-action">
+            View Collection <span class="action-arrow">&rarr;</span>
+        </div>
     </a>
-    <a href="fitnessgear.html" class="product-card">
-      <div class="product-card-icon">F</div>
-      <div class="product-card-label">Fitness Gear</div>
-      <div class="product-card-badge">Coming Soon</div>
+
+    <a href="t-shirts.html" class="product-card">
+        <div class="product-card-icon">T</div>
+        <div class="product-card-badge">Coming Soon</div>
+        <h3 class="product-card-title">
+            <span>Premium</span>
+            <span>T-Shirts</span>
+        </h3>
+        <p class="product-card-desc">
+            Premium heavyweight cotton with pristine custom-tailored fits.
+        </p>
+        <div class="product-card-action">
+            View Collection <span class="action-arrow">&rarr;</span>
+        </div>
     </a>
+
+    <a href="fitness.html" class="product-card">
+        <div class="product-card-icon">F</div>
+        <div class="product-card-badge">Coming Soon</div>
+        <h3 class="product-card-title">
+            <span>Engineered</span>
+            <span>Fitness Gear</span>
+        </h3>
+        <p class="product-card-desc">
+            Train harder. Stand taller. Own every rep in gear built for performance.
+        </p>
+        <div class="product-card-action">
+            View Collection <span class="action-arrow">&rarr;</span>
+        </div>
+    </a>
+
   </div>
 </section>
 

@@ -440,27 +440,6 @@
     border: 1px solid var(--border);
   }
 
-  .product-card {
-    background: var(--black);
-    aspect-ratio: 3/4;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 1rem;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-  }
-
-  .product-card::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: var(--green);
-    opacity: 0.04;
-    transition: opacity 0.3s;
-  }
-
-  .product-card:hover::before { opacity: 0.12; }
-
   .product-card-icon {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 4rem;

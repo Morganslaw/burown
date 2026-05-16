@@ -228,14 +228,19 @@
 }
 
 /* Giant Script Font Background Letter Asset */
+/* Giant Script Font Background Letter Asset */
 .product-card-icon {
   font-family: 'Great Vibes', cursive !important;
   font-size: 14rem !important;
   color: rgba(245, 243, 239, 0.03) !important; /* Elegant faint backdrop presentation */
   line-height: 1;
   position: absolute !important;
-  top: 35%; /* Positioned higher up inside the square frame layout */
-  right: 10%;
+  
+  /* 👇 This perfectly centers the watermark within the box */
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
   z-index: 1;
   pointer-events: none;
   transition: color 0.25s ease;

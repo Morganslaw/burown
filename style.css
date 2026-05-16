@@ -1,19 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-.contact-form label {
-  font-size: 26px;
-}
+/* PRODUCT CARD — GLOBAL, CLEAN VERSION */
 
 .product-card,
 .product-card:visited,
 .product-card:active {
   color: #fff !important;
+  text-decoration: none;
 }
 
 .product-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--black);
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
-  text-decoration: none;
+
+  /* Hover motion + glow */
   transition: transform 0.25s ease,
               box-shadow 0.25s ease,
               color 0.25s ease;
@@ -25,17 +31,34 @@
   color: #00a85d !important;
 }
 
+/* Green overlay tint */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--green);
+  opacity: 0.04;
+  transition: opacity 0.3s;
+}
+
+.product-card:hover::before {
+  opacity: 0.12;
+}
+
+/* Badge hover flip */
 .product-card:hover .product-card-badge {
   background: #00c46b;
   color: #fff;
   transition: background 0.25s ease, color 0.25s ease;
 }
 
+/* Icon */
 .product-card-icon {
   font-size: 60px;
   font-weight: 700;
 }
 
+/* Label underline animation */
 .product-card-label {
   font-size: 24px;
   font-weight: 600;
@@ -56,30 +79,4 @@
 
 .product-card:hover .product-card-label::after {
   width: 100%;
-}
-
-.product-card {
-  background: var(--black);
-  aspect-ratio: 3/4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.product-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--green);
-  opacity: 0.04;
-  transition: opacity 0.3s;
-}
-
-.product-card:hover::before {
-  opacity: 0.12;
 }

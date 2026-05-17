@@ -23,18 +23,18 @@ body {
 }
 
 /* ==========================================================================
-   PRODUCT GRID CONTAINER (2 COLUMNS - MATCHING IMAGES 1 & 2)
+   PRODUCT GRID CONTAINER (3 COLUMNS - ALL CARDS ON ONE ROW)
    ========================================================================== */
 .categories-grid, .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 side-by-side columns */
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); /* 👈 Changed from 2 to 3 side-by-side columns */
+  gap: 1.5rem;
   margin-top: 5rem;
   padding: 0 1rem;
 }
 
 /* ==========================================================================
-   PRODUCT CARD (IMAGE 3 CENTERED STYLE MATCH)
+   PRODUCT CARD (UNIFORM SIZING)
    ========================================================================== */
 .product-card,
 .product-card:visited,
@@ -43,6 +43,22 @@ body {
   text-decoration: none;
 }
 
+.product-card {
+  background: #0a0a0a;
+  /* aspect-ratio: 3/4; */               /* 👈 Make sure this line is gone or commented out */
+  min-height: 380px;                    /* 👈 Sets a clean, sensible height for the boxes */
+  padding: 4rem 2rem 3rem 2rem;         
+  display: flex;
+  flex-direction: column;
+  align-items: center;       
+  justify-content: center;   
+  text-align: center;        
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 .product-card {
   background: #0a0a0a;
   aspect-ratio: 3/4;          /* Portrait ratio matching your layout vision */

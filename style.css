@@ -27,14 +27,14 @@ body {
    ========================================================================== */
 .categories-grid, .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 👈 Changed from 2 to 3 side-by-side columns */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 1.5rem;
   margin-top: 5rem;
   padding: 0 1rem;
 }
 
 /* ==========================================================================
-   PRODUCT CARD (UNIFORM SIZING)
+   PRODUCT CARD (UNIFORM SIZING & BASE STATE)
    ========================================================================== */
 .product-card,
 .product-card:visited,
@@ -45,8 +45,7 @@ body {
 
 .product-card {
   background: #0a0a0a;
-  /* aspect-ratio: 3/4; */               /* 👈 Make sure this line is gone or commented out */
-  min-height: 380px;                    /* 👈 Sets a clean, sensible height for the boxes */
+  min-height: 380px;                    /* Clean uniform fallback height */
   padding: 4rem 2rem 3rem 2rem;         
   display: flex;
   flex-direction: column;
@@ -57,35 +56,43 @@ body {
   overflow: hidden;
   cursor: pointer;
   border: 1px solid var(--border);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.product-card {
-  background: #0a0a0a;
-  aspect-ratio: 3/4;          /* Portrait ratio matching your layout vision */
-  padding: 3.5rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* Centers badge, title, desc, action horizontally */
-  justify-content: center;   /* Centers the entire text block vertically */
-  text-align: center;        /* Centers the actual words within paragraph lines */
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  border: 1px solid var(--border);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  /* Added border-color to transition so the glowing edge fades in smoothly */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-/* Hover Glow & Subtle Elevation Lift */
+/* Hidden brand-green backdrop tint layer that activates on hover */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #1a4a2e; 
+  opacity: 0;          
+  transition: opacity 0.25s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   PRODUCT CARD - UNIFORM HOVER ACTIONS
+   ========================================================================== */
+
+/* 1. The Core Box Lift, Shadow, and Bright Green Edging */
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 196, 107, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
+  border-color: rgba(0, 196, 107, 0.4) !important; /* Forces the border to go bright green */
 }
 
-/* Giant Script Font Background Letter Asset */
+/* 2. Seamlessly Triggers the Subtle Green Background Tint */
+.product-card:hover::before {
+  opacity: 0.08; /* Fades in the subtle green overlay sheet */
+}
+
+/* 3. Giant Script Font Background Letter Asset */
 .product-card-icon {
   font-family: 'Great Vibes', cursive !important;
   font-size: 15rem !important;
-  color: rgba(245, 243, 239, 0.02) !important; /* Faint watermark layer */
+  color: rgba(245, 243, 239, 0.02) !important; 
   line-height: 1;
   position: absolute !important;
   top: 45%;  
@@ -96,6 +103,7 @@ body {
   transition: color 0.25s ease;
 }
 
+/* Color adjustment for the watermark letter on hover */
 .product-card:hover .product-card-icon {
   color: rgba(0, 196, 107, 0.04) !important;
 }
@@ -115,7 +123,7 @@ body {
   z-index: 2;
 }
 
-/* Elegant Serif Core Headers */
+/* Elegant Script Core Headers */
 .product-card-title {
   font-family: 'Great Vibes', cursive;
   font-size: 3.2rem;
@@ -123,11 +131,10 @@ body {
   line-height: 1.1;
   color: #f5f3ef;
   margin: 0 0 1rem 0;
-  position: relative;
   display: block;
-   width: 100%;
+  width: 100%;
   z-index: 2;
-   position: relative;
+  position: relative;
 }
 
 /* ── THE GREEN ANIMATION SCROLL UNDERLINE LINE ── */

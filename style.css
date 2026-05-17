@@ -23,50 +23,57 @@ body {
 }
 
 /* ==========================================================================
-   HOMEPAGE & SHOP GRID CARDS - EDITORIAL LOOK WITH UNDERLINE
+   PRODUCT GRID CONTAINER (2 COLUMNS - MATCHING IMAGES 1 & 2)
    ========================================================================== */
-
-/* The outer grid container box layout rule */
 .categories-grid, .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 side-by-side squares on desktop */
-  gap: 1.5rem;
-  margin-top: 4rem;
+  grid-template-columns: repeat(2, 1fr); /* 2 side-by-side columns */
+  gap: 2rem;
+  margin-top: 5rem;
+  padding: 0 1rem;
 }
 
-/* Master Box Configuration */
+/* ==========================================================================
+   PRODUCT CARD (IMAGE 3 CENTERED STYLE MATCH)
+   ========================================================================== */
+.product-card,
+.product-card:visited,
+.product-card:active {
+  color: #fff !important;
+  text-decoration: none;
+}
+
 .product-card {
   background: #0a0a0a;
-  aspect-ratio: 4/5; /* Taller to comfortably fit paragraph text lines */
-  padding: 3rem 2.5rem;
+  aspect-ratio: 3/4;          /* Portrait ratio matching your layout vision */
+  padding: 3.5rem 2.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;    /* Hard-aligns core elements to the left edge */
-  justify-content: flex-end;  /* Anchors content elements toward the bottom */
+  align-items: center;       /* Centers badge, title, desc, action horizontally */
+  justify-content: center;   /* Centers the entire text block vertically */
+  text-align: center;        /* Centers the actual words within paragraph lines */
   position: relative;
   overflow: hidden;
-  text-decoration: none;
   cursor: pointer;
-  border: 1px solid var(--border, #1a1a1a);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Slick Hover Glow Trim Box */
+/* Hover Glow & Subtle Elevation Lift */
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
-  border-color: rgba(0, 196, 107, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 196, 107, 0.1);
 }
 
 /* Giant Script Font Background Letter Asset */
 .product-card-icon {
   font-family: 'Great Vibes', cursive !important;
-  font-size: 14rem !important;
-  color: rgba(245, 243, 239, 0.03) !important;
+  font-size: 15rem !important;
+  color: rgba(245, 243, 239, 0.02) !important; /* Faint watermark layer */
   line-height: 1;
   position: absolute !important;
-  top: 50%;  
-  left: 40%;
+  top: 45%;  
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
   pointer-events: none;
@@ -74,11 +81,14 @@ body {
 }
 
 .product-card:hover .product-card-icon {
-  color: rgba(0, 196, 107, 0.05) !important;
+  color: rgba(0, 196, 107, 0.04) !important;
 }
 
-/* Minimalist Green Outline Top Badge Style */
+/* Minimalist Green Top Corner Badge Style */
 .product-card-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.55rem;
   letter-spacing: 0.15em;
@@ -86,53 +96,51 @@ body {
   color: #00c46b;
   border: 1px solid rgba(0, 196, 107, 0.25);
   padding: 0.3rem 0.6rem;
-  margin-bottom: auto; /* Pushes the badge perfectly to the top left corner */
   z-index: 2;
 }
 
 /* Elegant Serif Core Headers */
 .product-card-title {
   font-family: 'Playfair Display', 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.2;
   color: #f5f3ef;
-  margin: 0 0 1rem 0;
-  display: flex;
-  flex-direction: column; 
-  z-index: 2;
+  margin-bottom: 1.2rem;
   position: relative;
-  align-self: flex-start; 
+  display: inline-block;
+  z-index: 2;
 }
 
-/* ── THE GREEN ANIMATED SCROLL UNDERLINE LINE ── */
+/* ── THE GREEN ANIMATION SCROLL UNDERLINE LINE ── */
 .product-card-title::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -6px;
   width: 0%; /* Hidden by default */
   height: 2px;
   background: #00c46b;
   transition: width 0.25s ease;
 }
 
-/* Triggers the line to scroll open from left to right on card hover */
+/* Triggers the line to scroll open from center left on card hover */
 .product-card:hover .product-card-title::after {
   width: 100%;
 }
 
-/* Left-Aligned Paragraph Copy Styles */
+/* Centered Description Paragraph Copy Block Styles */
 .product-card-desc {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  color: rgba(245, 243, 239, 0.5);
-  margin: 0 0 2rem 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(245, 243, 239, 0.6);
+  margin-bottom: 2rem;
+  max-width: 85%; /* Airy line breaks */
   z-index: 2;
 }
 
-/* Editable Action Row Callout Link */
+/* Centered Action Link Style */
 .product-card-action {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.7rem;
@@ -162,9 +170,9 @@ body {
 }
 
 /* Responsive Rule: Drop down to single stack cards on mobile viewports */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .categories-grid, .product-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }

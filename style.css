@@ -23,7 +23,7 @@ body {
 }
 
 /* ==========================================================================
-   HOMEPAGE & SHOP GRID CARDS - EDITORIAL LOOK (OPTION B)
+   HOMEPAGE & SHOP GRID CARDS - EDITORIAL LOOK WITH UNDERLINE
    ========================================================================== */
 
 /* The outer grid container box layout rule */
@@ -41,7 +41,7 @@ body {
   padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;    /* Hard-aligns all elements to the left edge */
+  align-items: flex-start;    /* Hard-aligns core elements to the left edge */
   justify-content: flex-end;  /* Anchors content elements toward the bottom */
   position: relative;
   overflow: hidden;
@@ -51,7 +51,7 @@ body {
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-/* Slick Green Hover Glow Trim Box */
+/* Slick Hover Glow Trim Box */
 .product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
@@ -62,22 +62,19 @@ body {
 .product-card-icon {
   font-family: 'Great Vibes', cursive !important;
   font-size: 14rem !important;
-  color: rgba(245, 243, 239, 0.03) !important; /* Elegant faint backdrop presentation */
+  color: rgba(245, 243, 239, 0.03) !important;
   line-height: 1;
   position: absolute !important;
-  
-  /* This perfectly centers the watermark within the box */
   top: 50%;  
   left: 40%;
   transform: translate(-50%, -50%);
-  
   z-index: 1;
   pointer-events: none;
   transition: color 0.25s ease;
 }
 
 .product-card:hover .product-card-icon {
-  color: rgba(0, 196, 107, 0.05) !important; /* Glows faint green on hover */
+  color: rgba(0, 196, 107, 0.05) !important;
 }
 
 /* Minimalist Green Outline Top Badge Style */
@@ -102,10 +99,27 @@ body {
   color: #f5f3ef;
   margin: 0 0 1rem 0;
   display: flex;
-  flex-direction: column; /* Splitting names cleanly into separate lines */
+  flex-direction: column; 
   z-index: 2;
   position: relative;
   align-self: flex-start; 
+}
+
+/* ── THE GREEN ANIMATED SCROLL UNDERLINE LINE ── */
+.product-card-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%; /* Hidden by default */
+  height: 2px;
+  background: #00c46b;
+  transition: width 0.25s ease;
+}
+
+/* Triggers the line to scroll open from left to right on card hover */
+.product-card:hover .product-card-title::after {
+  width: 100%;
 }
 
 /* Left-Aligned Paragraph Copy Styles */
@@ -134,7 +148,7 @@ body {
 }
 
 .product-card:hover .product-card-action {
-  color: #00c46b; /* Highlights green when card is hovered */
+  color: #00c46b;
 }
 
 /* Interactive Link Arrow Element Indicator */
@@ -144,15 +158,7 @@ body {
 }
 
 .product-card:hover .action-arrow {
-  transform: translateX(4px); /* Shifts right subtly on hover */
-}
-
-/* Responsive Rule: Drop down to single stack cards on mobile viewports */
-@media (max-width: 992px) {
-  .categories-grid, .product-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+  transform: translateX(4px);
 }
 
 /* Responsive Rule: Drop down to single stack cards on mobile viewports */

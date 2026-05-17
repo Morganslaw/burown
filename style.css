@@ -227,3 +227,18 @@ body {
         padding: 20px;
     }
 }
+
+/* ==========================================================================
+   SUB-PAGE GRADIENT BACKGROUND (REPLACES THE FLAT GREY WRAPPER)
+   ========================================================================== */
+.categories-section {
+    /* Smooth transition blending from #0a0a0a/dark green at the bottom to #1a4a2e at the top */
+    background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
+    padding: 60px 0; /* Ensures ample spacing around the grid */
+    width: 100%;
+}
+
+/* Ensures the inner cards stand out crisply as solid black blocks against the gradient */
+.categories-section .product-card {
+    background: #0a0a0a !important;
+}

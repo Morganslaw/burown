@@ -201,3 +201,24 @@ body {
     gap: 1.5rem;
   }
 }
+
+/* Fix for 2-column sub-pages to maintain the sleek homepage proportions */
+.categories-grid.inner-grid, 
+.product-grid.inner-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 400px)); /* Keeps them perfectly proportioned */
+    justify-content: center; /* Centers the two blocks on the screen */
+    gap: 30px; /* Matches your homepage spacing */
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the whole container */
+    padding: 40px 20px; /* Cleans up the left and right edge spacing */
+}
+
+/* Keeps it completely responsive on mobile */
+@media (max-width: 768px) {
+    .categories-grid.inner-grid, 
+    .product-grid.inner-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}

@@ -210,7 +210,10 @@ body {
     justify-content: center; /* Centers the two blocks on the screen */
     gap: 30px; /* Matches your homepage spacing */
     max-width: 1200px;
-    margin: 0 auto; /* Centers the whole container */
+    margin-top: 5rem;        /* 👈 PRESERVES THE SPACE BELOW THE HEADER */
+    margin-bottom: 5rem;     /* 👈 ADDS BREATHING ROOM ABOVE THE EMAIL FORM */
+    margin-left: auto;       /* 👈 CENTERING HOOK */
+    margin-right: auto;      /* 👈 CENTERING HOOK */
     padding: 40px 20px; /* Cleans up the left and right edge spacing */
 }
 
@@ -219,6 +222,8 @@ body {
     .categories-grid.inner-grid, 
     .product-grid.inner-grid {
         grid-template-columns: 1fr;
+        margin-top: 3rem;    /* 👈 slightly tighter spacing for mobile viewports */
+        margin-bottom: 3rem;
         padding: 20px;
     }
 }

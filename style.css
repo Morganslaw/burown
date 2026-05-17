@@ -1,200 +1,29 @@
-/* PRODUCT CARD — GLOBAL, CLEAN VERSION */
-
-.product-card,
-.product-card:visited,
-.product-card:active {
-  color: #fff !important;
-  text-decoration: none;
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background: var(--black);
-  aspect-ratio: 3/4;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-
-  /* Hover motion + glow */
-  transition: transform 0.25s ease,
-              box-shadow 0.25s ease,
-              color 0.25s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 22px rgba(0, 196, 107, 0.35);
-  color: #00a85d !important;
-}
-
-/* Green overlay tint */
-.product-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--green);
-  opacity: 0.04;
-  transition: opacity 0.3s;
-}
-
-.product-card:hover::before {
-  opacity: 0.12;
-}
-
-/* Badge hover flip */
-.product-card:hover .product-card-badge {
-  background: #00c46b;
-  color: #fff;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-/* Icon */
-.product-card-icon {
-  font-size: 60px;
-  font-weight: 700;
-}
-
-/* Label underline animation */
-.product-card-label {
-  font-size: 24px;
-  font-weight: 600;
-  position: relative;
-  display: inline-block;
-}
-
-/* Update the name to -title: */
-.product-card-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: #00c46b;
-  transition: width 0.25s ease;
-}
-
-/* Update the hover name to -title: */
-.product-card:hover .product-card-title::after {
-  width: 100%;
-}
-
 /* ==========================================================================
-   PRODUCT CARD — GLOBAL MASTER VERSION
+   GLOBAL BRAND VARIABLES & RESETS
    ========================================================================== */
-
-.product-card,
-.product-card:visited,
-.product-card:active {
-  color: #fff !important;
-  text-decoration: none;
+:root {
+  --black: #0a0a0a;
+  --green: #1a4a2e;
+  --green-light: #2d6e46;
+  --green-accent: #3a8a58;
+  --white: #f5f3ef;
+  --grey: #888;
+  --border: rgba(245,243,239,0.1);
 }
 
-.product-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
   background: var(--black);
-  aspect-ratio: 3/4;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer; /* Pointer cursor enabled globally */
-
-  /* Hover motion + glow */
-  transition: transform 0.25s ease,
-              box-shadow 0.25s ease,
-              color 0.25s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 22px rgba(0, 196, 107, 0.35); /* Green glow edge */
-  color: #00a85d !important;
-}
-
-/* Green overlay tint */
-.product-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--green);
-  opacity: 0.04;
-  transition: opacity 0.3s;
-}
-
-.product-card:hover::before {
-  opacity: 0.12;
-}
-
-/* Badge hover flip (if used) */
-.product-card:hover .product-card-badge {
-  background: #00c46b;
-  color: #fff;
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-/* Icon / Large Letter */
-.product-card-icon {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 4rem; /* Match your index page font layout */
-  color: rgba(245,243,239,0.06);
-  line-height: 1;
-  transition: color 0.25s ease;
-}
-
-/* Label underline animation */
-.product-card-label {
-  font-size: 0.62rem;          /* Match the refined uppercase index size */
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(245,243,239,0.5); /* Boosted visibility slightly from 0.3 */
-  position: relative;
-  display: inline-block;
-  transition: color 0.25s ease;
-}
-
-/* Left-to-right scrolling underline bar under the letter/label */
-.product-card-label::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0%;
-  height: 3px;
-  background: #00c46b;
-  transition: width 0.25s ease;
-}
-
-.product-card:hover .product-card-label::after {
-  width: 100%;
-}
-
-/* Turn text fully vibrant when parent box is hovered */
-.product-card:hover .product-card-label {
-  color: #fff;
-}
-.product-card:hover .product-card-icon {
-  color: rgba(0, 196, 107, 0.2);
-}
-
-/* Ensure the categories container builds clean, standard grids */
-.categories-grid, .product-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Generates 2 equal columns side by side */
-  gap: 1px;                             /* Creates that slick 1px thin separator line */
-  background: var(--border);            /* The underlying line color */
-  border: 1px solid var(--border);      /* Outside bounding box line */
-  margin-top: 5rem;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
 }
 
 /* ==========================================================================
-   HOMEPAGE GRID CARDS - EDITORIAL LOOK (PIC 2 STYLE)
+   HOMEPAGE & SHOP GRID CARDS - EDITORIAL LOOK (OPTION B)
    ========================================================================== */
 
 /* The outer grid container box layout rule */
@@ -208,18 +37,18 @@
 /* Master Box Configuration */
 .product-card {
   background: #0a0a0a;
-  aspect-ratio: 4/5; /* Slightly taller to comfortably fit paragraph text lines */
+  aspect-ratio: 4/5; /* Taller to comfortably fit paragraph text lines */
   padding: 3rem 2.5rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;    /* 👈 Hard-aligns all elements to the left edge */
-  justify-content: flex-end;  /* 👈 Anchors content elements toward the bottom */
+  align-items: flex-start;    /* Hard-aligns all elements to the left edge */
+  justify-content: flex-end;  /* Anchors content elements toward the bottom */
   position: relative;
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
   border: 1px solid var(--border, #1a1a1a);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 /* Slick Green Hover Glow Trim Box */
@@ -230,7 +59,6 @@
 }
 
 /* Giant Script Font Background Letter Asset */
-/* Giant Script Font Background Letter Asset */
 .product-card-icon {
   font-family: 'Great Vibes', cursive !important;
   font-size: 14rem !important;
@@ -238,8 +66,8 @@
   line-height: 1;
   position: absolute !important;
   
-  /* 👇 This perfectly centers the watermark within the box */
-  top: 50%; 
+  /* This perfectly centers the watermark within the box */
+  top: 50%;  
   left: 40%;
   transform: translate(-50%, -50%);
   
@@ -247,6 +75,7 @@
   pointer-events: none;
   transition: color 0.25s ease;
 }
+
 .product-card:hover .product-card-icon {
   color: rgba(0, 196, 107, 0.05) !important; /* Glows faint green on hover */
 }
@@ -303,6 +132,7 @@
   z-index: 2;
   transition: color 0.25s ease;
 }
+
 .product-card:hover .product-card-action {
   color: #00c46b; /* Highlights green when card is hovered */
 }
@@ -312,8 +142,17 @@
   display: inline-block;
   transition: transform 0.25s ease;
 }
+
 .product-card:hover .action-arrow {
   transform: translateX(4px); /* Shifts right subtly on hover */
+}
+
+/* Responsive Rule: Drop down to single stack cards on mobile viewports */
+@media (max-width: 992px) {
+  .categories-grid, .product-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 /* Responsive Rule: Drop down to single stack cards on mobile viewports */

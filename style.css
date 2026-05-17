@@ -242,3 +242,16 @@ body {
 .categories-section .product-card {
     background: #0a0a0a !important;
 }
+
+/* Removes the side constraints on sub-pages so the background stretches completely */
+.categories-section, 
+.product-grid.inner-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* If the grey bars persist, it means a parent wrapper container has padding we need to negate */
+main, .main-content, #wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}

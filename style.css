@@ -21,7 +21,27 @@ body {
   font-weight: 300;
   overflow-x: hidden;
 }
+======================================================
+   GLOBAL NAVIGATION B
+/* ====================AR LOGO SIZING
+   ========================================================================== */
 
+/* 1. The graphic emblem box */
+.logo-mark {
+  width: 48px;               /* 👈 Blows the graphic up from 37px */
+  height: 72px;              /* 👈 Blows the graphic up from 55px */
+  flex-shrink: 0;
+}
+
+/* 2. The text brand name ("BeUrOwn") sitting next to the graphic */
+.nav-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.45rem;        /* 👈 Scales the text up from 1.15rem */
+  letter-spacing: 0.05em;
+  color: var(--white);
+  line-height: 1;
+}
 /* ==========================================================================
    PRODUCT GRID CONTAINER (3 COLUMNS - ALL CARDS ON ONE ROW)
    ========================================================================== */

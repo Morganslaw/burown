@@ -275,3 +275,43 @@ main, .main-content, #wrapper {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
+/* ==========================================================================
+   INFINITE SCROLLING MARQUEE BANNER
+   ========================================================================== */
+.marquee-strip {
+  background: #1a4a2e;
+  color: #f5f3ef;
+  padding: 0.75rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  border-top: 1px solid rgba(245,243,239,0.1);
+  border-bottom: 1px solid rgba(245,243,239,0.1);
+}
+
+.marquee-inner {
+  display: inline-flex;
+  white-space: nowrap;
+  padding-left: 0;
+  animation: marquee-loop 25s linear infinite;
+}
+
+.marquee-inner span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0 1rem;
+}
+
+.marquee-inner .dot {
+  color: #00c46b;
+  opacity: 0.8;
+}
+
+@keyframes marquee-loop {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}

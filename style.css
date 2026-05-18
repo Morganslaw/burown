@@ -365,30 +365,34 @@ main, .main-content, #wrapper {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   align-items: center;
   gap: 0.3rem;
-  z-index: 9999;
+  z-index: 9999 !important;
   pointer-events: none;
   text-align: center;
 }
 
 /* Text formatting for the word SCROLL inside the marquee bar */
 .hero-scroll-global span {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffffff;
-  line-height: 1;
+  font-size: 10px !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  line-height: 1 !important;
+  display: block !important;
 }
 
 /* The vertical wire element that executes the keyframe drawing cycle */
 .hero-scroll-global-line {
-  width: 1px;
-  height: 18px;
-  background: #ffffff;
-  animation: scrollLineGlobal 2s infinite;
+  width: 1px !important;
+  height: 18px !important;
+  background-color: #ffffff !important;
+  display: block !important;
+  margin: 0 auto !important;
+  transform-origin: top;
+  animation: scrollLineGlobal 2s infinite !important;
 }
 
 /* ── ANIMATION KEYFRAMES ── */

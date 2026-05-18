@@ -318,14 +318,13 @@ main, .main-content, #wrapper {
 
 
 /* ==========================================================================
-   GLOBAL MARQUEE STRIP & HERO SCROLL INDICATOR
+   GLOBAL MARQUEE STRIP & POSITIONED HERO SCROLL INDICATOR
    ========================================================================== */
 
-/* The outer container that locks the absolute grid positioning frame */
-.marquee-wrapper {
+/* The master container framework housing both the bar and the indicator pointer */
+.marquee-outer-container {
   position: relative;
   width: 100%;
-  background: #1a4a2e; /* Fallback brand green background color */
 }
 
 /* The structural green band height layout */
@@ -335,6 +334,8 @@ main, .main-content, #wrapper {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 /* Flex layout tracking for the continuous seamless animation string */
@@ -359,22 +360,24 @@ main, .main-content, #wrapper {
   padding: 0;
 }
 
-/* Central overlay anchoring for the scroll indicator over the green strip */
+/* Anchors the scroll element precisely ABOVE the green marquee strip */
 .hero-scroll-global {
   position: absolute;
-  top: 50%;
+  top: 0%; /* Anchors to the absolute top edge of the green bar */
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -110%); /* Pulls the entire element straight UP completely out of the bar */
   display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.3rem;
-  z-index: 9999 !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  z-index: 99999 !important;
   pointer-events: none;
   text-align: center;
+  width: 100px !important;
 }
 
-/* Text formatting for the word SCROLL inside the marquee bar */
+/* Text formatting for the word SCROLL */
 .hero-scroll-global span {
   font-size: 10px !important;
   letter-spacing: 2px !important;

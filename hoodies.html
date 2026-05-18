@@ -437,9 +437,15 @@
   </div>
 </nav>
 
-    <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="hero-scroll-line"></div>
+ <div class="marquee-strip" style="position: relative;">
+
+    <div class="hero-scroll" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 999; text-align: center; pointer-events: none;">
+        <span style="color: #ffffff; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; display: block;">Scroll</span>
+        <div class="hero-scroll-line" style="width: 1px; height: 35px; background-color: #ffffff; margin: 5px auto 0 auto; display: block;"></div>
+    </div>
+
+    <div class="marquee-inner">
+        </div>
 </div>
   
 <div class="page-header">

@@ -102,7 +102,7 @@
 
 /* ── PAGE HEADER ── */
   .page-header {
-    padding: 11rem 2.5rem 5rem; 
+    padding: 10rem 2.5rem 5rem; 
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
@@ -366,11 +366,10 @@
 
   /* ── SUB-PAGE MARQUEE ANIMATION FORCED HOOKS ── */
   .marquee-strip {
-    position: absolute !important; 
-    top: 5rem !important;          /* 💡 Pins it right below the fixed menu bar */
-    left: 0 !important;
-    width: 100% !important;
-    z-index: 99 !important;        /* 💡 Keeps it on top of the background gradient */
+    position: relative !important; 
+    top: 0 !important;          /* 💡 Pins it right below the fixed menu bar */
+    z-index: 2 !important;   /* 💡 Keeps it on top of the background gradient */
+    margin-bottom: 3rem !important;
     background: #1a4a2e !important;
     color: #f5f3ef !important;
     padding: 0.75rem 0 !important;
@@ -438,47 +437,53 @@
   </div>
 </nav>
 
-<div class="marquee-strip">
-  <div class="marquee-inner">
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Self</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Strength</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Persistence</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Belief</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Authenticity</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Power</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Beautiful</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Hero</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Captain</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Self</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Strength</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Persistence</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Belief</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Authenticity</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Power</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Beautiful</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Hero</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Captain</span><span class="dot">·</span>
-  </div>
-</div>
+<div class="page-header">
+  <div class="page-header-bg"></div>
   
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Self</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Strength</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Persistence</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Belief</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Authenticity</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Power</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Beautiful</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Hero</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Captain</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Self</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Strength</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Persistence</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Belief</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Authenticity</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Power</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Beautiful</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Hero</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Captain</span><span class="dot">·</span>
+    </div>
+  </div> <a href="shop.html" class="back-link">Back to Shop</a>
+  <span class="page-eyebrow">BeUrOwn — Stylewear</span>
+  <h1 class="page-title">Hoodies</h1>
+</div> ```
+
 <!-- PAGE HEADER -->
 <div class="page-header">
   <div class="page-header-bg"></div>

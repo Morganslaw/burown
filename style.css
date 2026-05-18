@@ -277,47 +277,6 @@ main, .main-content, #wrapper {
 }
 
 /* ==========================================================================
-   INFINITE SCROLLING MARQUEE BANNER
-   ========================================================================== */
-.marquee-strip {
-  background: #1a4a2e;
-  color: #f5f3ef;
-  padding: 0.75rem 0;
-  overflow: hidden;
-  white-space: nowrap;
-  display: flex;
-  border-top: 1px solid rgba(245,243,239,0.1);
-  border-bottom: 1px solid rgba(245,243,239,0.1);
-}
-
-.marquee-inner {
-  display: inline-flex;
-  white-space: nowrap;
-  padding-left: 0;
-  animation: marquee-loop 25s linear infinite;
-}
-
-.marquee-inner span {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0 1rem;
-}
-
-.marquee-inner .dot {
-  color: #00c46b;
-  opacity: 0.8;
-}
-
-@keyframes marquee-loop {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(-50%, 0, 0); }
-}
-
-
-/* ==========================================================================
    GLOBAL MARQUEE STRIP & POSITIONED HERO SCROLL INDICATOR
    ========================================================================== */
 
@@ -329,34 +288,39 @@ main, .main-content, #wrapper {
 
 /* The structural green band height layout */
 .marquee-strip {
-  background: #1a4a2e; /* Brand green */
+  background: var(--green); /* Uses your root brand green variable cleanly */
   padding: 0.85rem 0;
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
   display: flex;
   align-items: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 /* Flex layout tracking for the continuous seamless animation string */
 .marquee-inner {
   display: inline-flex;
-  animation: marqueeGlobal 60s linear infinite;
+  white-space: nowrap;
+  animation: marqueeGlobal 25s linear infinite; /* Set to 25s for an optimal, smooth pace */
 }
 
 /* Typography styles for the moving statement words */
 .marquee-inner span {
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0 2.5rem;
-  opacity: 0.9;
-  color: #f5f3ef; /* Brand warm white */
+  padding: 0 1.5rem; /* Balanced spacing for clean text loops */
+  color: var(--white); /* Uses root warm white */
 }
 
 /* Subtle opacity blending for the divider dots between words */
 .marquee-inner .dot {
-  color: rgba(245, 243, 239, 0.4);
+  color: var(--green-accent); /* Vibrant brand accent dot */
+  font-weight: 700;
   padding: 0;
 }
 

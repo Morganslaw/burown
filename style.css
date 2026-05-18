@@ -315,3 +315,94 @@ main, .main-content, #wrapper {
   0% { transform: translate3d(0, 0, 0); }
   100% { transform: translate3d(-50%, 0, 0); }
 }
+
+
+/* ==========================================================================
+   GLOBAL MARQUEE STRIP & HERO SCROLL INDICATOR
+   ========================================================================== */
+
+/* The outer container that locks the absolute grid positioning frame */
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  background: #1a4a2e; /* Fallback brand green background color */
+}
+
+/* The structural green band height layout */
+.marquee-strip {
+  background: #1a4a2e; /* Brand green */
+  padding: 0.85rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Flex layout tracking for the continuous seamless animation string */
+.marquee-inner {
+  display: inline-flex;
+  animation: marqueeGlobal 60s linear infinite;
+}
+
+/* Typography styles for the moving statement words */
+.marquee-inner span {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 0 2.5rem;
+  opacity: 0.9;
+  color: #f5f3ef; /* Brand warm white */
+}
+
+/* Subtle opacity blending for the divider dots between words */
+.marquee-inner .dot {
+  color: rgba(245, 243, 239, 0.4);
+  padding: 0;
+}
+
+/* Central overlay anchoring for the scroll indicator over the green strip */
+.hero-scroll-global {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  z-index: 9999;
+  pointer-events: none;
+  text-align: center;
+}
+
+/* Text formatting for the word SCROLL inside the marquee bar */
+.hero-scroll-global span {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* The vertical wire element that executes the keyframe drawing cycle */
+.hero-scroll-global-line {
+  width: 1px;
+  height: 18px;
+  background: #ffffff;
+  animation: scrollLineGlobal 2s infinite;
+}
+
+/* ── ANIMATION KEYFRAMES ── */
+
+/* Seamless 50% X-axis translate scroll track loop */
+@keyframes marqueeGlobal {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Micro-interaction drawing loop: draws from top-down, changes anchor point, then collapses bottom-up */
+@keyframes scrollLineGlobal {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}

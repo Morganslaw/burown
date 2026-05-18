@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Hoodies — BeUrOwn</title>
 
-<!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-<!-- Global Stylesheet -->
 <link rel="stylesheet" href="style.css">
 
 <style>
@@ -52,7 +48,7 @@
   }
 
   .logo-mark {
-    width: 37px; height: 55px;
+    width: 48px; height: 72px; /* 👈 Cleanly updated to your larger size */
     position: relative; flex-shrink: 0;
   }
 
@@ -61,7 +57,7 @@
   .nav-wordmark {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.15rem;
+    font-size: 1.45rem;        /* 👈 Cleanly updated to your larger size */
     letter-spacing: 0.05em;
     color: var(--white);
     line-height: 1;
@@ -367,9 +363,46 @@
     filter: grayscale(1) brightness(2);
     mix-blend-mode: screen;
   }
+
+  /* ── SUB-PAGE MARQUEE ANIMATION FORCED HOOKS ── */
+  .marquee-strip {
+    background: #1a4a2e !important;
+    color: #f5f3ef !important;
+    padding: 0.75rem 0 !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    border-top: 1px solid rgba(245,243,239,0.1) !important;
+    border-bottom: 1px solid rgba(245,243,239,0.1) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .marquee-inner {
+    display: inline-flex !important;
+    white-space: nowrap !important;
+    animation: marquee-loop 25s linear infinite !important;
+  }
+
+  .marquee-inner span {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: uppercase !important;
+    padding: 0 1rem !important;
+  }
+
+  .marquee-inner .dot {
+    color: #00c46b !important;
+  }
+
+  @keyframes marquee-loop {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
 </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DE9DT1MLYC"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DE9DT1MLYC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

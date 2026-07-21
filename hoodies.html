@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hoodies — BeUrOwn</title>
-  <!-- Google Fonts required by your style.css -->
+  <!-- Google Fonts required by style.css -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -12,40 +12,15 @@
 </head>
 <body>
 
-  <!-- Subpage Main Section with your signature gradient background -->
-  <section class="categories-section">
+  <!-- Signature Global Marquee Strip (Now Above the Cards) -->
+  <div class="marquee-outer-container" style="margin-top: 3rem;">
     
-    <!-- 2-Column Inner Grid for Subpages -->
-    <div class="categories-grid inner-grid">
-      
-      <!-- Men's Hoodies Card -->
-      <a href="male-hoodies.html" class="product-card">
-        <span class="product-card-badge">Collection</span>
-        <div class="product-card-icon">H</div> <!-- Watermark Great Vibes letter asset -->
-        <h2 class="product-card-title">Men's Hoodies</h2>
-        <p class="product-card-desc">Clean fit. Bold message. Heavyweight cotton with pristine custom-tailored fits.</p>
-        <span class="product-card-action">
-          Explore Men's <span class="action-arrow">→</span>
-        </span>
-      </a>
-
-      <!-- Women's Hoodies Card -->
-      <a href="female-hoodies.html" class="product-card">
-        <span class="product-card-badge">Collection</span>
-        <div class="product-card-icon">H</div> <!-- Watermark Great Vibes letter asset -->
-        <h2 class="product-card-title">Women's Hoodies</h2>
-        <p class="product-card-desc">Tailored silhouettes and statement comfort designed to empower.</p>
-        <span class="product-card-action">
-          Explore Women's <span class="action-arrow">→</span>
-        </span>
-      </a>
-
+    <!-- Hero Scroll Line Indicator -->
+    <div class="hero-scroll-global">
+      <span>Scroll</span>
+      <div class="hero-scroll-global-line"></div>
     </div>
 
-  </section>
-
-  <!-- Your Signature Global Marquee Strip -->
-  <div class="marquee-outer-container">
     <div class="marquee-strip">
       <div class="marquee-inner">
         <span>BeUrOwn <span class="dot">·</span> Self</span>
@@ -63,6 +38,41 @@
       </div>
     </div>
   </div>
+
+  <!-- Divider Line Gap between Marquee and Product Cards -->
+  <hr style="border: none; border-bottom: 1px solid var(--border); margin: 0 auto; width: 100%;">
+
+  <!-- Main Section with Product Cards -->
+  <section class="categories-section">
+    
+    <!-- 2-Column Inner Grid -->
+    <div class="categories-grid inner-grid" style="margin-top: 3rem;">
+      
+      <!-- Men's Hoodies Card -->
+      <a href="male-hoodies.html" class="product-card">
+        <span class="product-card-badge">Collection</span>
+        <div class="product-card-icon">H</div>
+        <h2 class="product-card-title">Men's Hoodies</h2>
+        <p class="product-card-desc">Clean fit. Bold message. Heavyweight cotton with pristine custom-tailored fits.</p>
+        <span class="product-card-action">
+          Explore Men's <span class="action-arrow">→</span>
+        </span>
+      </a>
+
+      <!-- Women's Hoodies Card -->
+      <a href="female-hoodies.html" class="product-card">
+        <span class="product-card-badge">Collection</span>
+        <div class="product-card-icon">H</div>
+        <h2 class="product-card-title">Women's Hoodies</h2>
+        <p class="product-card-desc">Tailored silhouettes and statement comfort designed to empower.</p>
+        <span class="product-card-action">
+          Explore Women's <span class="action-arrow">→</span>
+        </span>
+      </a>
+
+    </div>
+
+  </section>
 
 </body>
 </html>

@@ -6,12 +6,74 @@
 <title>Hoodies — BeUrOwn</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=Playfair+Display:ital,wght@1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
 <style>
-  /* Hero subpage adjustments */
+  :root {
+    --black: #0a0a0a;
+    --green: #1a4a2e;
+    --green-light: #2d6e46;
+    --green-accent: #3a8a58;
+    --white: #f5f3ef;
+    --grey: #888;
+    --border: rgba(245,243,239,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* Navigation Bar */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 2.5rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.45rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover { opacity: 1; color: var(--green-accent); }
+
+  /* Subpage Hero Section */
   .sub-hero {
-    min-height: 50vh;
+    min-height: 45vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,6 +82,15 @@
     position: relative;
     overflow: hidden;
     text-align: center;
+    background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(26,74,46,0.25) 0%, transparent 70%);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-accent);
+    margin-bottom: 1rem;
   }
 
   .sub-hero-title {
@@ -28,7 +99,6 @@
     font-weight: 400;
     line-height: 1;
     color: var(--white);
-    animation: fadeUp 0.8s 0.2s both;
   }
 
   .sub-hero-title span {
@@ -41,40 +111,213 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: rgba(245,243,239,0.5);
-    animation: fadeUp 0.8s 0.4s both;
+  }
+
+  /* Marquee Strip */
+  .marquee-outer-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .marquee-strip {
+    background: var(--green);
+    padding: 0.85rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .marquee-inner {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: marqueeGlobal 25s linear infinite;
+  }
+
+  .marquee-inner span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0 1.5rem;
+    color: var(--white);
+  }
+
+  .marquee-inner .dot {
+    color: var(--green-accent);
+    font-weight: 700;
+    padding: 0;
+  }
+
+  @keyframes marqueeGlobal {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Category Grid Container & Cards */
+  .categories-section {
+    background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
+    padding: 60px 20px;
+    width: 100%;
+  }
+
+  .categories-grid.inner-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: #0a0a0a !important;
+    min-height: 380px;
+    padding: 4rem 2rem 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: #fff !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
+    border-color: rgba(0, 196, 107, 0.4) !important;
+  }
+
+  .product-card-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #00c46b;
+    border: 1px solid rgba(0, 196, 107, 0.25);
+    padding: 0.3rem 0.6rem;
+  }
+
+  .product-card-icon {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 15rem !important;
+    color: rgba(245, 243, 239, 0.03) !important;
+    line-height: 1;
+    position: absolute !important;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: color 0.25s ease;
+  }
+
+  .product-card:hover .product-card-icon {
+    color: rgba(0, 196, 107, 0.06) !important;
+  }
+
+  .product-card-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #f5f3ef;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .product-card-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(245, 243, 239, 0.6);
+    margin-bottom: 2rem;
+    max-width: 85%;
+    z-index: 2;
+  }
+
+  .product-card-action {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(245, 243, 239, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    z-index: 2;
+    transition: color 0.25s ease;
+  }
+
+  .product-card:hover .product-card-action { color: #00c46b; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--white);
+    opacity: 0.6;
+  }
+
+  .footer-copy {
+    font-size: 0.65rem;
+    color: rgba(245,243,239,0.3);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,243,239,0.35);
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .categories-grid.inner-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
-    <div class="logo-mark">
-      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqxVeigAqxVeigCxVeiigAooooAKKKKACiiigAoqxVegAooooAKKKsUAFFFFABRRRQAUUVXoAsVXoooAKsUVXoAsUVXooAsVXoooAKsVXqxQAUUVXoAsUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUVXooAsUVXooAsUVXooAsVXoooAKKKKACiiigCxVeiigAooooAKKKKALFV6KKACiiigA0AFFFFABRRRQB//Z" alt="BeUrOwn logo" style="width:100%;height:100%;object-fit:contain;"/>
-    </div>
     <span class="nav-wordmark">BeUrOwn</span>
   </a>
 
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="index.html#home">Home</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#shop">Shop</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
-
-  <div class="hamburger" id="hamburger" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </div>
 </nav>
 
 <!-- SUBPAGE HERO -->
 <section class="sub-hero">
-  <div class="hero-bg"></div>
-  <div class="hero-deco-logo">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigAooooAKKKKACiiigA0AFFFFABRRRQB//Z" alt="" style="width:100%;height:100%;object-fit:contain;"/>
-  </div>
-
   <div class="hero-content">
     <p class="hero-eyebrow">Collection &nbsp;·&nbsp; Stylewear</p>
     <h1 class="sub-hero-title">BeUrOwn <span>Hoodies.</span></h1>
@@ -82,12 +325,8 @@
   </div>
 </section>
 
-<!-- MARQUEE -->
+<!-- MARQUEE STRIP AT TOP -->
 <div class="marquee-outer-container">
-  <div class="hero-scroll-global">
-    <span>Scroll</span>
-    <div class="hero-scroll-global-line"></div>
-  </div>
   <div class="marquee-strip">
     <div class="marquee-inner">
       <span>BeUrOwn</span><span class="dot">·</span>
@@ -118,21 +357,22 @@
   </div>
 </div>
 
-<hr style="border: none; border-bottom: 1px solid var(--border); margin: 0 auto; width: 100%;">
-
-<!-- CATEGORIES SECTION -->
+<!-- CATEGORY CARDS SECTION -->
 <section class="categories-section">
   <div class="categories-grid inner-grid">
+    
+    <!-- Men's Hoodies Card -->
     <a href="male-hoodies.html" class="product-card">
       <span class="product-card-badge">Collection</span>
       <div class="product-card-icon">H</div>
       <h2 class="product-card-title">Men's Hoodies</h2>
-      <p class="product-card-desc">Heavyweight cotton blend engineered for pristine custom-tailored fits and long-lasting durability.</p>
+      <p class="product-card-desc">Heavyweight cotton blend engineered for custom-tailored fits and durability.</p>
       <span class="product-card-action">
         Explore Men's <span class="action-arrow">→</span>
       </span>
     </a>
 
+    <!-- Women's Hoodies Card -->
     <a href="female-hoodies.html" class="product-card">
       <span class="product-card-badge">Collection</span>
       <div class="product-card-icon">H</div>
@@ -142,6 +382,7 @@
         Explore Women's <span class="action-arrow">→</span>
       </span>
     </a>
+
   </div>
 </section>
 
@@ -157,8 +398,5 @@
   <p class="footer-copy">© 2026 BeUrOwn. beurown.co.uk · beurown.com</p>
 </footer>
 
-<script>
-  function toggleNav() { document.body.classList.toggle('nav-open'); }
-</script>
 </body>
 </html>

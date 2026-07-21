@@ -31,7 +31,6 @@
     overflow-x: hidden;
   }
 
-  /* Navigation Bar */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -46,6 +45,13 @@
     text-decoration: none;
   }
 
+  .logo-mark {
+    width: 32px; height: 48px;
+    position: relative; flex-shrink: 0;
+  }
+
+  .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+
   .nav-wordmark {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -55,52 +61,30 @@
     line-height: 1;
   }
 
-  .nav-links {
-    display: flex; gap: 2rem; list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.7;
-    transition: opacity 0.2s, color 0.2s;
+    color: var(--white); text-decoration: none;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0.7; transition: opacity 0.2s, color 0.2s;
   }
-
   .nav-links a:hover { opacity: 1; color: var(--green-accent); }
 
   .nav-cta {
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--white) !important;
-    opacity: 1 !important;
-    border: 1px solid var(--green) !important;
-    padding: 0.5rem 1rem;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white) !important; opacity: 1 !important;
+    border: 1px solid var(--green) !important; padding: 0.5rem 1rem;
     transition: background 0.2s !important;
   }
   .nav-cta:hover { background: var(--green) !important; }
 
   .hamburger {
-    display: none;
-    flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
   }
-  .hamburger span {
-    display: block; width: 24px; height: 1.5px; background: var(--white);
-    transition: all 0.3s;
-  }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
 
-  /* Hero Section */
   #sub-hero {
-    min-height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 7rem 2.5rem 3rem;
-    position: relative;
-    overflow: hidden;
+    min-height: 70vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 2.5rem 4rem; position: relative; overflow: hidden;
   }
 
   .hero-bg {
@@ -110,83 +94,50 @@
       radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,74,46,0.1) 0%, transparent 60%);
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 900px;
+  .hero-deco-logo {
+    position: absolute; right: -2%; top: 50%;
+    transform: translateY(-50%);
+    width: 50vw; max-width: 500px; opacity: 0.04; pointer-events: none;
   }
+  .hero-deco-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+  .hero-content { position: relative; z-index: 2; max-width: 900px; }
 
   .hero-eyebrow {
-    font-size: 0.82rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--green-accent);
-    margin-bottom: 1.2rem;
+    font-size: 0.82rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--green-accent); margin-bottom: 1.2rem;
   }
 
-  /* Compact Scaled Calligraphy Title */
   .hero-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 8vw, 6.5rem); /* Scaled down smaller than index page */
-    font-weight: 400;
-    line-height: 1;
-    color: var(--white);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 400; line-height: 1; color: var(--white);
   }
 
-  .hero-title .line2 {
-    display: block;
-    padding-left: 4vw;
-    color: var(--green-accent);
-  }
+  .hero-title .line2 { display: block; padding-left: 4vw; color: var(--green-accent); }
 
-  /* Line 3: Own. + Centered Category Name side by side */
   .hero-title .line3-container {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+    display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap;
   }
 
   .hero-title .category-tag {
-    color: var(--green-accent);
-    font-size: clamp(3.8rem, 8.5vw, 7rem);
+    color: var(--green-accent); font-size: clamp(3.8rem, 8.5vw, 7rem);
   }
 
   .hero-sub {
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    color: rgba(245,243,239,0.5);
-    max-width: 420px;
-    line-height: 1.8;
-  }
-
-  .hero-sub strong {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: var(--white);
-    display: block;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem; font-size: 0.85rem; letter-spacing: 0.08em;
+    color: rgba(245,243,239,0.5); max-width: 420px; line-height: 1.8;
   }
 
   .hero-scroll {
-    position: absolute;
-    bottom: 1.5rem; left: 50%;
+    position: absolute; bottom: 1.5rem; left: 50%;
     transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-    opacity: 0.4;
-    animation: pulse 2s 2s infinite;
+    opacity: 0.4; animation: pulse 2s 2s infinite;
   }
 
-  .hero-scroll span {
-    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
-  }
-
-  .hero-scroll-line {
-    width: 1px; height: 35px; background: var(--white);
-    animation: scrollLine 2s 2s infinite;
-  }
+  .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .hero-scroll-line { width: 1px; height: 35px; background: var(--white); animation: scrollLine 2s 2s infinite; }
 
   @keyframes scrollLine {
     0% { transform: scaleY(0); transform-origin: top; }
@@ -195,181 +146,93 @@
     100% { transform: scaleY(0); transform-origin: bottom; }
   }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
-  }
+  @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
 
-  /* Marquee Strip */
   .marquee-strip {
-    background: var(--green);
-    padding: 0.85rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: var(--green); padding: 0.85rem 0; overflow: hidden;
+    white-space: nowrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   }
 
-  .marquee-inner {
-    display: inline-flex;
-    animation: marquee 30s linear infinite;
-  }
-
+  .marquee-inner { display: inline-flex; animation: marquee 30s linear infinite; }
   .marquee-inner span {
-    font-size: 0.65rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    padding: 0 2.5rem;
-    opacity: 0.9;
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 0 2.5rem; opacity: 0.9;
   }
+  .marquee-inner .dot { color: rgba(245,243,239,0.4); padding: 0; }
 
-  .marquee-inner .dot {
-    color: rgba(245,243,239,0.4);
-    padding: 0;
-  }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* Category Section & Grid */
   .categories-section {
     background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
-    padding: 60px 0;
-    width: 100%;
+    padding: 60px 0; width: 100%;
   }
 
   .categories-grid.inner-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
+    max-width: 1000px; margin: 0 auto; padding: 0 20px;
   }
 
   .product-card {
-    background: #0a0a0a !important;
-    min-height: 380px;
-    padding: 4rem 2rem 3rem 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid var(--border);
-    text-decoration: none;
-    color: #fff !important;
+    background: #0a0a0a !important; min-height: 380px; padding: 4rem 2rem 3rem 2rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden; cursor: pointer;
+    border: 1px solid var(--border); text-decoration: none; color: #fff !important;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
 
   .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
+    transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
     border-color: rgba(0, 196, 107, 0.4) !important;
   }
 
   .product-card-badge {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 0.55rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: #00c46b;
-    border: 1px solid rgba(0, 196, 107, 0.25);
-    padding: 0.3rem 0.6rem;
+    position: absolute; top: 1.5rem; right: 1.5rem; font-size: 0.55rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: #00c46b;
+    border: 1px solid rgba(0, 196, 107, 0.25); padding: 0.3rem 0.6rem;
   }
 
   .product-card-icon {
-    font-family: 'Great Vibes', cursive !important;
-    font-size: 15rem !important;
-    color: rgba(245, 243, 239, 0.02) !important;
-    line-height: 1;
-    position: absolute !important;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    transition: color 0.25s ease;
+    font-family: 'Great Vibes', cursive !important; font-size: 15rem !important;
+    color: rgba(245, 243, 239, 0.02) !important; line-height: 1;
+    position: absolute !important; top: 45%; left: 50%;
+    transform: translate(-50%, -50%); pointer-events: none; transition: color 0.25s ease;
   }
 
-  .product-card:hover .product-card-icon {
-    color: rgba(0, 196, 107, 0.04) !important;
-  }
+  .product-card:hover .product-card-icon { color: rgba(0, 196, 107, 0.04) !important; }
 
   .product-card-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.2rem;
-    font-weight: 400;
-    line-height: 1.1;
-    color: #f5f3ef;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
+    font-family: 'Great Vibes', cursive; font-size: 3.2rem; font-weight: 400;
+    line-height: 1.1; color: #f5f3ef; margin-bottom: 1rem; position: relative; z-index: 2;
   }
 
   .product-card-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: rgba(245, 243, 239, 0.6);
-    margin-bottom: 2rem;
-    max-width: 85%;
-    z-index: 2;
+    font-size: 0.9rem; line-height: 1.6; color: rgba(245, 243, 239, 0.6);
+    margin-bottom: 2rem; max-width: 85%; z-index: 2;
   }
 
   .product-card-action {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(245, 243, 239, 0.4);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    z-index: 2;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245, 243, 239, 0.4); display: flex; align-items: center; gap: 0.4rem; z-index: 2;
     transition: color 0.25s ease;
   }
 
   .product-card:hover .product-card-action { color: #00c46b; }
 
-  /* Footer */
   footer {
-    border-top: 1px solid var(--border);
-    padding: 2.5rem 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
+    border-top: 1px solid var(--border); padding: 2.5rem 2.5rem; display: flex;
+    align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
   }
 
   .footer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.3rem;
-    color: var(--white);
-    opacity: 0.6;
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem;
+    color: var(--white); opacity: 0.6;
   }
 
-  .footer-copy {
-    font-size: 0.65rem;
-    color: rgba(245,243,239,0.3);
-    letter-spacing: 0.08em;
-  }
-
+  .footer-copy { font-size: 0.65rem; color: rgba(245,243,239,0.3); letter-spacing: 0.08em; }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; }
   .footer-links a {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(245,243,239,0.35);
-    text-decoration: none;
-    transition: color 0.2s;
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(245,243,239,0.35); text-decoration: none; transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--green-accent); }
 
@@ -384,9 +247,11 @@
 </head>
 <body>
 
-<!-- NAVIGATION -->
 <nav id="navbar">
   <a href="index.html#home" class="nav-logo">
+    <div class="logo-mark">
+      <img src="logo.png" alt="BeUrOwn Logo">
+    </div>
     <span class="nav-wordmark">BeUrOwn</span>
   </a>
 
@@ -402,9 +267,12 @@
   </div>
 </nav>
 
-<!-- HERO SECTION -->
 <section id="sub-hero">
   <div class="hero-bg"></div>
+
+  <div class="hero-deco-logo">
+    <img src="logo.png" alt="BeUrOwn Watermark">
+  </div>
 
   <div class="hero-content">
     <p class="hero-eyebrow">Cornwall &nbsp;·&nbsp; Khartoum &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; Stylewear</p>
@@ -427,7 +295,6 @@
   </div>
 </section>
 
-<!-- MARQUEE STRIP -->
 <div class="marquee-strip">
   <div class="marquee-inner">
     <span>BeUrOwn</span><span class="dot">·</span>
@@ -457,11 +324,9 @@
   </div>
 </div>
 
-<!-- CATEGORY CARDS SECTION -->
 <section class="categories-section">
   <div class="categories-grid inner-grid">
     
-    <!-- Men's Hoodies Card -->
     <a href="male-hoodies.html" class="product-card">
       <span class="product-card-badge">Collection</span>
       <div class="product-card-icon">H</div>
@@ -472,7 +337,6 @@
       </span>
     </a>
 
-    <!-- Women's Hoodies Card -->
     <a href="female-hoodies.html" class="product-card">
       <span class="product-card-badge">Collection</span>
       <div class="product-card-icon">H</div>
@@ -486,7 +350,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">BeUrOwn</div>
   <ul class="footer-links">
@@ -499,15 +362,10 @@
 </footer>
 
 <script>
-  function toggleNav() {
-    document.body.classList.toggle('nav-open');
-  }
-
+  function toggleNav() { document.body.classList.toggle('nav-open'); }
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
-    nav.style.borderBottomColor = window.scrollY > 50
-      ? 'rgba(26,74,46,0.3)'
-      : 'rgba(245,243,239,0.1)';
+    nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(26,74,46,0.3)' : 'rgba(245,243,239,0.1)';
   });
 </script>
 

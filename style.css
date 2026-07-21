@@ -1,23 +1,365 @@
-/* Center line 3 container holding "Own." and the category tag */
-.hero-title .line3-container {
-  display: flex !important;
-  align-items: baseline !important;
-  justify-content: center !important; /* Centers "Own." and "Hoodies." horizontally */
-  gap: 1.5rem !important;
-  flex-wrap: wrap !important;
+/* ==========================================================================
+   GLOBAL BRAND VARIABLES & RESETS
+   ========================================================================== */
+:root {
+  --black: #0a0a0a;
+  --green: #1a4a2e;
+  --green-light: #2d6e46;
+  --green-accent: #3a8a58;
+  --white: #f5f3ef;
+  --grey: #888;
+  --border: rgba(245,243,239,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   GLOBAL NAVIGATION BAR LOGO SIZING
+   ========================================================================== */
+
+/* 1. The graphic emblem box */
+.logo-mark {
+  width: 48px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+/* 2. The text brand name ("BeUrOwn") sitting next to the graphic */
+.nav-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.45rem;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  line-height: 1;
+}
+
+/* ==========================================================================
+   PRODUCT GRID CONTAINER (3 COLUMNS - ALL CARDS ON ONE ROW)
+   ========================================================================== */
+.categories-grid, .product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5rem;
+  margin-top: 5rem;
+  padding: 0 1rem;
+}
+
+/* ==========================================================================
+   PRODUCT CARD (UNIFORM SIZING & BASE STATE)
+   ========================================================================== */
+.product-card,
+.product-card:visited,
+.product-card:active {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.product-card {
+  background: #0a0a0a;
+  min-height: 380px;
+  padding: 4rem 2rem 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Hidden brand-green backdrop tint layer that activates on hover */
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #1a4a2e; 
+  opacity: 0; 
+  transition: opacity 0.25s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   PRODUCT CARD - UNIFORM HOVER ACTIONS
+   ========================================================================== */
+
+/* 1. The Core Box Lift, Shadow, and Bright Green Edging */
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
+  border-color: rgba(0, 196, 107, 0.4) !important;
+}
+
+/* 2. Seamlessly Triggers the Subtle Green Background Tint */
+.product-card:hover::before {
+  opacity: 0.08;
+}
+
+/* 3. Giant Script Font Background Letter Asset */
+.product-card-icon {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 15rem !important;
+  color: rgba(245, 243, 239, 0.02) !important; 
+  line-height: 1;
+  position: absolute !important;
+  top: 45%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  transition: color 0.25s ease;
+}
+
+/* Color adjustment for the watermark letter on hover */
+.product-card:hover .product-card-icon {
+  color: rgba(0, 196, 107, 0.04) !important;
+}
+
+/* Minimalist Green Top Corner Badge Style */
+.product-card-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #00c46b;
+  border: 1px solid rgba(0, 196, 107, 0.25);
+  padding: 0.3rem 0.6rem;
+  z-index: 2;
+}
+
+/* Elegant Script Core Headers */
+.product-card-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.2rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #f5f3ef;
+  margin: 0 0 1rem 0;
+  display: block;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+
+/* ── THE GREEN ANIMATION SCROLL UNDERLINE LINE ── */
+.product-card-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #00c46b;
+  transition: width 0.25s ease;
+}
+
+/* Triggers the line to scroll open from center left on card hover */
+.product-card:hover .product-card-title::after {
+  width: 100%;
+}
+
+/* Centered Description Paragraph Copy Block Styles */
+.product-card-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(245, 243, 239, 0.6);
+  margin-bottom: 2rem;
+  max-width: 85%;
+  z-index: 2;
+}
+
+/* Centered Action Link Style */
+.product-card-action {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 2;
+  transition: color 0.25s ease;
+}
+
+.product-card:hover .product-card-action {
+  color: #00c46b;
+}
+
+/* Interactive Link Arrow Element Indicator */
+.action-arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.product-card:hover .action-arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive Rule: Drop down to single stack cards on mobile viewports */
+@media (max-width: 768px) {
+  .categories-grid, .product-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Fix for 2-column sub-pages to maintain the sleek homepage proportions */
+.categories-grid.inner-grid, 
+.product-grid.inner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap: 30px;
+  max-width: 1000px;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 20px;
+}
+
+/* Keeps it completely responsive on mobile */
+@media (max-width: 768px) {
+  .categories-grid.inner-grid, 
+  .product-grid.inner-grid {
+    grid-template-columns: 1fr;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 20px;
+  }
+}
+
+/* ==========================================================================
+   SUB-PAGE GRADIENT BACKGROUND (REPLACES THE FLAT GREY WRAPPER)
+   ========================================================================== */
+.categories-section {
+  background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
+  padding: 60px 0;
+  width: 100%;
+}
+
+.categories-section .product-card {
+  background: #0a0a0a !important;
+}
+
+.categories-section, 
+.product-grid.inner-grid {
   width: 100% !important;
+  max-width: 100% !important;
 }
 
-.hero-title .category-tag {
-  color: var(--green-accent) !important;
-  font-size: clamp(3.8rem, 8.5vw, 7rem) !important;
+main, .main-content, #wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
-/* Ensure hero content area stays full width & centered */
-.hero-content {
-  position: relative !important;
-  z-index: 2 !important;
-  max-width: 900px !important;
+/* ==========================================================================
+   GLOBAL MARQUEE STRIP & POSITIONED HERO SCROLL INDICATOR
+   ========================================================================== */
+
+.marquee-outer-container {
+  position: relative;
+  width: 100%;
+}
+
+.marquee-strip {
+  background: var(--green);
+  padding: 0.85rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.marquee-inner {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marqueeGlobal 25s linear infinite;
+}
+
+.marquee-inner span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0 1.5rem;
+  color: var(--white);
+}
+
+.marquee-inner .dot {
+  color: var(--green-accent);
+  font-weight: 700;
+  padding: 0;
+}
+
+.hero-scroll-global {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  z-index: 99999 !important;
+  pointer-events: none;
+  text-align: center;
+  width: 100px !important;
+}
+
+.hero-scroll-global span {
+  font-size: 10px !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  line-height: 1 !important;
+  display: block !important;
+}
+
+.hero-scroll-global-line {
+  width: 1px !important;
+  height: 18px !important;
+  background-color: #ffffff !important;
+  display: block !important;
   margin: 0 auto !important;
-  text-align: center !important;
+  transform-origin: top;
+  animation: scrollLineGlobal 2s infinite !important;
+}
+
+/* ── ANIMATION KEYFRAMES ── */
+
+@keyframes marqueeGlobal {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrollLineGlobal {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  51% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
 }

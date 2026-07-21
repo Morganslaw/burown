@@ -6,7 +6,7 @@
 <title>Hoodies — BeUrOwn</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=Playfair+Display:ital,wght@1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
 <style>
@@ -35,8 +35,8 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 2.5rem;
-    background: rgba(10,10,10,0.9);
+    padding: 1.4rem 2.5rem;
+    background: rgba(10,10,10,0.85);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
@@ -44,6 +44,11 @@
   .nav-logo {
     display: flex; align-items: center; gap: 0.8rem;
     text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 32px; height: 48px;
+    position: relative; flex-shrink: 0;
   }
 
   .nav-wordmark {
@@ -71,94 +76,179 @@
 
   .nav-links a:hover { opacity: 1; color: var(--green-accent); }
 
-  /* Compact Subpage Hero */
-  .sub-hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 7rem 2.5rem 2.5rem; /* Tight top padding directly under nav */
-    position: relative;
-    text-align: center;
-    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(26,74,46,0.2) 0%, transparent 70%);
+  .nav-cta {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white) !important;
+    opacity: 1 !important;
+    border: 1px solid var(--green) !important;
+    padding: 0.5rem 1rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--green) !important; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 1.5px; background: var(--white);
+    transition: all 0.3s;
   }
 
+  /* Subpage Hero Section with Homepage Title Styling */
+  #sub-hero {
+    min-height: 75vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 7rem 2.5rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(26,74,46,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,74,46,0.1) 0%, transparent 60%);
+  }
+
+  .hero-deco-logo {
+    position: absolute;
+    right: -2%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50vw; max-width: 500px;
+    opacity: 0.04;
+    pointer-events: none;
+  }
+
+  .hero-deco-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 820px; }
+
   .hero-eyebrow {
-    font-size: 0.75rem;
+    font-size: 0.82rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--green-accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.1s both;
   }
 
-  .sub-hero-title {
+  /* Stacked Title matching index page structure */
+  .subpage-hero-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3.8rem, 10vw, 8.5rem);
     font-weight: 400;
-    line-height: 1.1;
+    line-height: 0.95;
     color: var(--white);
+    animation: fadeUp 0.9s 0.3s both;
   }
 
-  .sub-hero-title span {
+  .subpage-hero-title .line2 {
+    display: block;
+    padding-left: 5vw;
     color: var(--green-accent);
   }
 
-  .sub-hero-sub {
-    margin-top: 0.75rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+  .subpage-hero-title .line3 {
+    display: block;
+    padding-left: 2vw;
+  }
+
+  .subpage-hero-title .line4 {
+    display: block;
+    padding-left: 7vw;
+    color: var(--green-accent);
+  }
+
+  .hero-sub {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
     color: rgba(245,243,239,0.5);
+    max-width: 420px;
+    line-height: 1.8;
+    animation: fadeUp 0.9s 0.5s both;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 1.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    opacity: 0.4;
+    animation: pulse 2s 2s infinite;
+  }
+
+  .hero-scroll span {
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  .hero-scroll-line {
+    width: 1px; height: 35px; background: var(--white);
+    animation: scrollLine 2s 2s infinite;
+  }
+
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
   }
 
   /* Marquee Strip */
-  .marquee-outer-container {
-    position: relative;
-    width: 100%;
-  }
-
   .marquee-strip {
     background: var(--green);
     padding: 0.85rem 0;
     overflow: hidden;
     white-space: nowrap;
-    width: 100%;
-    display: flex;
-    align-items: center;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
 
   .marquee-inner {
     display: inline-flex;
-    white-space: nowrap;
-    animation: marqueeGlobal 25s linear infinite;
+    animation: marquee 30s linear infinite;
   }
 
   .marquee-inner span {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    padding: 0 1.5rem;
-    color: var(--white);
+    padding: 0 2.5rem;
+    opacity: 0.9;
   }
 
   .marquee-inner .dot {
-    color: var(--green-accent);
-    font-weight: 700;
+    color: rgba(245,243,239,0.4);
     padding: 0;
   }
 
-  @keyframes marqueeGlobal {
+  @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
-  /* Category Grid Container & Cards */
+  /* Categories Section & Grid */
   .categories-section {
     background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
-    padding: 50px 20px;
+    padding: 60px 0;
     width: 100%;
   }
 
@@ -168,6 +258,7 @@
     gap: 30px;
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 20px;
   }
 
   .product-card {
@@ -209,7 +300,7 @@
   .product-card-icon {
     font-family: 'Great Vibes', cursive !important;
     font-size: 15rem !important;
-    color: rgba(245, 243, 239, 0.03) !important;
+    color: rgba(245, 243, 239, 0.02) !important;
     line-height: 1;
     position: absolute !important;
     top: 45%;
@@ -220,7 +311,7 @@
   }
 
   .product-card:hover .product-card-icon {
-    color: rgba(0, 196, 107, 0.06) !important;
+    color: rgba(0, 196, 107, 0.04) !important;
   }
 
   .product-card-title {
@@ -261,7 +352,7 @@
   /* Footer */
   footer {
     border-top: 1px solid var(--border);
-    padding: 2.5rem;
+    padding: 2.5rem 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -290,11 +381,16 @@
     text-transform: uppercase;
     color: rgba(245,243,239,0.35);
     text-decoration: none;
+    transition: color 0.2s;
   }
+  .footer-links a:hover { color: var(--green-accent); }
 
   @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
     .categories-grid.inner-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; text-align: center; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -302,54 +398,77 @@
 
 <!-- NAVIGATION -->
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">
+  <a href="index.html#home" class="nav-logo">
+    <div class="logo-mark">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigA0AFFFFABRRRQB//Z" alt="BeUrOwn logo" style="width:100%;height:100%;object-fit:contain;"/>
+    </div>
     <span class="nav-wordmark">BeUrOwn</span>
   </a>
 
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html#home">Home</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#shop">Shop</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
   </ul>
+
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<!-- SUBPAGE HERO -->
-<section class="sub-hero">
-  <p class="hero-eyebrow">Collection &nbsp;·&nbsp; Stylewear</p>
-  <h1 class="sub-hero-title">BeUrOwn <span>Hoodies.</span></h1>
-  <p class="sub-hero-sub">Clean Fit. Bold Message. Designed With Intention.</p>
+<!-- SUBPAGE HERO SECTION -->
+<section id="sub-hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-deco-logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigA0AFFFFABRRRQB//Z" alt="" />
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cornwall &nbsp;·&nbsp; Khartoum &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; Stylewear</p>
+    <h1 class="subpage-hero-title">
+      Be<span class="line2">Ur</span><span class="line3">Own.</span>
+      <span class="line4">Hoodies.</span>
+    </h1>
+    <p class="hero-sub">
+      Clean fit. Bold message.<br>Designed with intention.
+    </p>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
 </section>
 
 <!-- MARQUEE STRIP -->
-<div class="marquee-outer-container">
-  <div class="marquee-strip">
-    <div class="marquee-inner">
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Self</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Strength</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Persistence</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Belief</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Authenticity</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Power</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Self</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Strength</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Persistence</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Belief</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Authenticity</span><span class="dot">·</span>
-      <span>BeUrOwn</span><span class="dot">·</span>
-      <span>Power</span><span class="dot">·</span>
-    </div>
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Self</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Strength</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Persistence</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Belief</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Authenticity</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Power</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Self</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Strength</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Persistence</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Belief</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Authenticity</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span>
+    <span>Power</span><span class="dot">·</span>
   </div>
 </div>
 
@@ -362,7 +481,7 @@
       <span class="product-card-badge">Collection</span>
       <div class="product-card-icon">H</div>
       <h2 class="product-card-title">Men's Hoodies</h2>
-      <p class="product-card-desc">Heavyweight cotton blend engineered for custom-tailored fits and durability.</p>
+      <p class="product-card-desc">Heavyweight cotton blend engineered for custom-tailored fits and long-lasting durability.</p>
       <span class="product-card-action">
         Explore Men's <span class="action-arrow">→</span>
       </span>
@@ -393,6 +512,25 @@
   </ul>
   <p class="footer-copy">© 2026 BeUrOwn. beurown.co.uk · beurown.com</p>
 </footer>
+
+<script>
+  function toggleNav() {
+    document.body.classList.toggle('nav-open');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.borderBottomColor = window.scrollY > 50
+      ? 'rgba(26,74,46,0.3)'
+      : 'rgba(245,243,239,0.1)';
+  });
+</script>
 
 </body>
 </html>

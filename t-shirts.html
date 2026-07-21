@@ -1,68 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T-Shirts — BeUrOwn</title>
-  <!-- Google Fonts required by style.css -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T-Shirts — BeUrOwn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+  :root {
+    --black: #0a0a0a;
+    --green: #1a4a2e;
+    --green-light: #2d6e46;
+    --green-accent: #3a8a58;
+    --white: #f5f3ef;
+    --grey: #888;
+    --border: rgba(245,243,239,0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* Navigation Bar */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 2.5rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 32px; height: 48px;
+    position: relative; flex-shrink: 0;
+  }
+
+  .logo-mark img { width: 100%; height: 100%; object-fit: contain; }
+
+  .nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--white); text-decoration: none;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0.7; transition: opacity 0.2s, color 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--green-accent); }
+
+  .nav-cta {
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--white) !important; opacity: 1 !important;
+    border: 1px solid var(--green) !important; padding: 0.5rem 1rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--green) !important; }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+  }
+  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
+
+  /* Subpage Hero */
+  #sub-hero {
+    min-height: 85vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 2.5rem 4rem; position: relative; overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(26,74,46,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,74,46,0.1) 0%, transparent 60%);
+  }
+
+  .hero-deco-logo {
+    position: absolute; right: -2%; top: 50%;
+    transform: translateY(-50%);
+    width: 50vw; max-width: 500px; opacity: 0.04; pointer-events: none;
+  }
+  .hero-deco-logo img { width: 100%; height: 100%; object-fit: contain; }
+
+  /* Hero Content - Left Aligned */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    text-align: left;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.82rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--green-accent); margin-bottom: 1.2rem;
+  }
+
+  /* Subpage Title */
+  .hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.8rem, 10vw, 8.5rem);
+    font-weight: 400;
+    line-height: 0.95;
+    color: var(--white);
+  }
+
+  .hero-title .line1 { display: block; }
+
+  .hero-title .line2 {
+    display: block;
+    padding-left: 6vw;
+    color: var(--green-accent);
+  }
+
+  /* Line 3 Container: Locks "Own." on the left, centers "T-Shirts." */
+  .hero-title .line3-container {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    padding-left: 2vw;
+  }
+
+  .hero-title .line3-container .own-text {
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .hero-title .category-tag {
+    color: var(--green-accent);
+    font-size: clamp(4rem, 11vw, 9rem);
+    margin: 0 auto;
+    padding-left: 2rem;
+  }
+
+  .hero-sub {
+    margin-top: 2rem; font-size: 0.85rem; letter-spacing: 0.08em;
+    color: rgba(245,243,239,0.5); max-width: 380px; line-height: 1.8;
+  }
+
+  .hero-scroll {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    opacity: 0.4; animation: pulse 2s 2s infinite;
+  }
+
+  .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; }
+  .hero-scroll-line { width: 1px; height: 40px; background: var(--white); animation: scrollLine 2s 2s infinite; }
+
+  @keyframes scrollLine {
+    0% { transform: scaleY(0); transform-origin: top; }
+    50% { transform: scaleY(1); transform-origin: top; }
+    51% { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
+
+  @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+
+  .marquee-strip {
+    background: var(--green); padding: 0.85rem 0; overflow: hidden;
+    white-space: nowrap; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  }
+
+  .marquee-inner { display: inline-flex; animation: marquee 30s linear infinite; }
+  .marquee-inner span {
+    font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 0 2.5rem; opacity: 0.9;
+  }
+  .marquee-inner .dot { color: rgba(245,243,239,0.4); padding: 0; }
+
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .categories-section {
+    background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
+    padding: 60px 0; width: 100%;
+  }
+
+  .categories-grid.inner-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;
+    max-width: 1000px; margin: 0 auto; padding: 0 20px;
+  }
+
+  .product-card {
+    background: #0a0a0a !important; min-height: 380px; padding: 4rem 2rem 3rem 2rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; position: relative; overflow: hidden; cursor: pointer;
+    border: 1px solid var(--border); text-decoration: none; color: #fff !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0, 196, 107, 0.15);
+    border-color: rgba(0, 196, 107, 0.4) !important;
+  }
+
+  .product-card-badge {
+    position: absolute; top: 1.5rem; right: 1.5rem; font-size: 0.55rem;
+    letter-spacing: 0.15em; text-transform: uppercase; color: #00c46b;
+    border: 1px solid rgba(0, 196, 107, 0.25); padding: 0.3rem 0.6rem;
+  }
+
+  .product-card-icon {
+    font-family: 'Great Vibes', cursive !important; font-size: 15rem !important;
+    color: rgba(245, 243, 239, 0.02) !important; line-height: 1;
+    position: absolute !important; top: 45%; left: 50%;
+    transform: translate(-50%, -50%); pointer-events: none;
+  }
+
+  .product-card-title {
+    font-family: 'Great Vibes', cursive; font-size: 3.2rem; font-weight: 400;
+    line-height: 1.1; color: #f5f3ef; margin-bottom: 1rem; position: relative; z-index: 2;
+  }
+
+  .product-card-desc {
+    font-size: 0.9rem; line-height: 1.6; color: rgba(245, 243, 239, 0.6);
+    margin-bottom: 2rem; max-width: 85%; z-index: 2;
+  }
+
+  .product-card-action {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245, 243, 239, 0.4); display: flex; align-items: center; gap: 0.4rem; z-index: 2;
+  }
+
+  footer {
+    border-top: 1px solid var(--border); padding: 2.5rem 2.5rem; display: flex;
+    align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem;
+    color: var(--white); opacity: 0.6;
+  }
+
+  .footer-copy { font-size: 0.65rem; color: rgba(245,243,239,0.3); letter-spacing: 0.08em; }
+  .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+  .footer-links a {
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(245,243,239,0.35); text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-title .line3-container { flex-direction: column; align-items: flex-start; }
+    .hero-title .category-tag { margin: 0; padding-left: 2vw; }
+    .categories-grid.inner-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Subpage Main Section -->
-  <section class="categories-section">
-    
-    <!-- 2-Column Inner Grid -->
-    <div class="categories-grid inner-grid">
-      
-      <!-- Men's T-Shirts Card -->
-      <a href="tshirts-male.html" class="product-card">
-        <span class="product-card-badge">Collection</span>
-        <div class="product-card-icon">T</div> <!-- Watermark Great Vibes 'T' asset -->
-        <h2 class="product-card-title">Men's T-Shirts</h2>
-        <p class="product-card-desc">Premium heavyweight cotton with pristine custom-tailored fits.</p>
-        <span class="product-card-action">
-          Explore Men's <span class="action-arrow">→</span>
-        </span>
-      </a>
+<nav id="navbar">
+  <a href="index.html#home" class="nav-logo">
+    <div class="logo-mark"><img src="logo.png" alt="BeUrOwn Logo"></div>
+    <span class="nav-wordmark">BeUrOwn</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
 
-      <!-- Women's T-Shirts Card -->
-      <a href="tshirts-female.html" class="product-card">
-        <span class="product-card-badge">Collection</span>
-        <div class="product-card-icon">T</div> <!-- Watermark Great Vibes 'T' asset -->
-        <h2 class="product-card-title">Women's T-Shirts</h2>
-        <p class="product-card-desc">Lightweight, structured cuts designed for an effortless statement fit.</p>
-        <span class="product-card-action">
-          Explore Women's <span class="action-arrow">→</span>
-        </span>
-      </a>
-
-    </div>
-
-  </section>
-
-  <!-- Signature Global Marquee Strip -->
-  <div class="marquee-outer-container">
-    <div class="marquee-strip">
-      <div class="marquee-inner">
-        <span>BeUrOwn <span class="dot">·</span> Self</span>
-        <span>BeUrOwn <span class="dot">·</span> Strength</span>
-        <span>BeUrOwn <span class="dot">·</span> Persistence</span>
-        <span>BeUrOwn <span class="dot">·</span> Belief</span>
-        <span>BeUrOwn <span class="dot">·</span> Authenticity</span>
-        <span>BeUrOwn <span class="dot">·</span> Power</span>
-        <span>BeUrOwn <span class="dot">·</span> Self</span>
-        <span>BeUrOwn <span class="dot">·</span> Strength</span>
-        <span>BeUrOwn <span class="dot">·</span> Persistence</span>
-        <span>BeUrOwn <span class="dot">·</span> Belief</span>
-        <span>BeUrOwn <span class="dot">·</span> Authenticity</span>
-        <span>BeUrOwn <span class="dot">·</span> Power</span>
+<section id="sub-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco-logo"><img src="logo.png" alt="BeUrOwn Watermark"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cornwall &nbsp;·&nbsp; Khartoum &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; Stylewear</p>
+    <h1 class="hero-title">
+      <span class="line1">Be</span>
+      <span class="line2">Ur</span>
+      <div class="line3-container">
+        <span class="own-text">Own.</span>
+        <span class="category-tag">T-Shirts.</span>
       </div>
-    </div>
+    </h1>
+    <p class="hero-sub">Premium heavyweight cotton.<br>Pristine custom-tailored fits.</p>
   </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
+</section>
 
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    <span>BeUrOwn</span><span class="dot">·</span><span>Self</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Strength</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Persistence</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Belief</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Authenticity</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Power</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Self</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Strength</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Persistence</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Belief</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Authenticity</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Power</span><span class="dot">·</span>
+  </div>
+</div>
+
+<section class="categories-section">
+  <div class="categories-grid inner-grid">
+    <a href="tshirts-male.html" class="product-card">
+      <span class="product-card-badge">Collection</span>
+      <div class="product-card-icon">T</div>
+      <h2 class="product-card-title">Men's T-Shirts</h2>
+      <p class="product-card-desc">Premium heavyweight cotton engineered with pristine custom-tailored cuts for everyday structure.</p>
+      <span class="product-card-action">Explore Men's <span class="action-arrow">→</span></span>
+    </a>
+    <a href="tshirts-female.html" class="product-card">
+      <span class="product-card-badge">Collection</span>
+      <div class="product-card-icon">T</div>
+      <h2 class="product-card-title">Women's T-Shirts</h2>
+      <p class="product-card-desc">Structured, lightweight cuts designed for an effortless statement fit and maximum breathability.</p>
+      <span class="product-card-action">Explore Women's <span class="action-arrow">→</span></span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">BeUrOwn</div>
+  <ul class="footer-links">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 BeUrOwn. beurown.co.uk · beurown.com</p>
+</footer>
+
+<script>
+  function toggleNav() { document.body.classList.toggle('nav-open'); }
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(26,74,46,0.3)' : 'rgba(245,243,239,0.1)';
+  });
+</script>
 </body>
 </html>

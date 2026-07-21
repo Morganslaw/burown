@@ -31,6 +31,7 @@
     overflow-x: hidden;
   }
 
+  /* Navigation Bar */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -55,7 +56,7 @@
   .nav-wordmark {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.45rem;
+    font-size: 1.15rem;
     letter-spacing: 0.05em;
     color: var(--white);
     line-height: 1;
@@ -82,8 +83,10 @@
   }
   .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: all 0.3s; }
 
+  /* Subpage Hero */
   #sub-hero {
-    min-height: 70vh; display: flex; flex-direction: column; justify-content: center;
+    min-height: 85vh;
+    display: flex; flex-direction: column; justify-content: center;
     padding: 8rem 2.5rem 4rem; position: relative; overflow: hidden;
   }
 
@@ -101,43 +104,74 @@
   }
   .hero-deco-logo img { width: 100%; height: 100%; object-fit: contain; }
 
-  .hero-content { position: relative; z-index: 2; max-width: 900px; }
+  /* Hero Content - Strictly Left Aligned */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    text-align: left;
+  }
 
   .hero-eyebrow {
     font-size: 0.82rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--green-accent); margin-bottom: 1.2rem;
   }
 
+  /* Subpage Title (Slightly Smaller than homepage) */
   .hero-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.5rem, 8vw, 6.5rem);
-    font-weight: 400; line-height: 1; color: var(--white);
+    font-size: clamp(3.8rem, 10vw, 8.5rem); /* Scaled down slightly for subpages */
+    font-weight: 400;
+    line-height: 0.95;
+    color: var(--white);
   }
 
-  .hero-title .line2 { display: block; padding-left: 4vw; color: var(--green-accent); }
+  .hero-title .line1 {
+    display: block;
+  }
 
+  .hero-title .line2 {
+    display: block;
+    padding-left: 6vw; /* Exact stagger from homepage */
+    color: var(--green-accent);
+  }
+
+  /* Line 3 Container: Locks "Own." on the left, centers "Hoodies." */
   .hero-title .line3-container {
-    display: flex; align-items: baseline; gap: 1.5rem; flex-wrap: wrap;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    padding-left: 2vw; /* Exact stagger for "Own." */
+  }
+
+  .hero-title .line3-container .own-text {
+    color: var(--white);
+    flex-shrink: 0;
   }
 
   .hero-title .category-tag {
-    color: var(--green-accent); font-size: clamp(3.8rem, 8.5vw, 7rem);
+    color: var(--green-accent);
+    font-size: clamp(4rem, 11vw, 9rem);
+    margin: 0 auto; /* 👈 CENTERS "Hoodies." in the remaining line space */
+    padding-left: 2rem;
   }
 
   .hero-sub {
-    margin-top: 1.5rem; font-size: 0.85rem; letter-spacing: 0.08em;
-    color: rgba(245,243,239,0.5); max-width: 420px; line-height: 1.8;
+    margin-top: 2rem; font-size: 0.85rem; letter-spacing: 0.08em;
+    color: rgba(245,243,239,0.5); max-width: 380px; line-height: 1.8;
   }
 
   .hero-scroll {
-    position: absolute; bottom: 1.5rem; left: 50%;
+    position: absolute; bottom: 2rem; left: 50%;
     transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
     opacity: 0.4; animation: pulse 2s 2s infinite;
   }
 
   .hero-scroll span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; }
-  .hero-scroll-line { width: 1px; height: 35px; background: var(--white); animation: scrollLine 2s 2s infinite; }
+  .hero-scroll-line { width: 1px; height: 40px; background: var(--white); animation: scrollLine 2s 2s infinite; }
 
   @keyframes scrollLine {
     0% { transform: scaleY(0); transform-origin: top; }
@@ -195,10 +229,8 @@
     font-family: 'Great Vibes', cursive !important; font-size: 15rem !important;
     color: rgba(245, 243, 239, 0.02) !important; line-height: 1;
     position: absolute !important; top: 45%; left: 50%;
-    transform: translate(-50%, -50%); pointer-events: none; transition: color 0.25s ease;
+    transform: translate(-50%, -50%); pointer-events: none;
   }
-
-  .product-card:hover .product-card-icon { color: rgba(0, 196, 107, 0.04) !important; }
 
   .product-card-title {
     font-family: 'Great Vibes', cursive; font-size: 3.2rem; font-weight: 400;
@@ -213,10 +245,7 @@
   .product-card-action {
     font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
     color: rgba(245, 243, 239, 0.4); display: flex; align-items: center; gap: 0.4rem; z-index: 2;
-    transition: color 0.25s ease;
   }
-
-  .product-card:hover .product-card-action { color: #00c46b; }
 
   footer {
     border-top: 1px solid var(--border); padding: 2.5rem 2.5rem; display: flex;
@@ -232,14 +261,15 @@
   .footer-links { display: flex; gap: 1.5rem; list-style: none; }
   .footer-links a {
     font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(245,243,239,0.35); text-decoration: none; transition: color 0.2s;
+    color: rgba(245,243,239,0.35); text-decoration: none;
   }
-  .footer-links a:hover { color: var(--green-accent); }
 
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
+    .hero-title .line3-container { flex-direction: column; align-items: flex-start; }
+    .hero-title .category-tag { margin: 0; padding-left: 2vw; }
     .categories-grid.inner-grid { grid-template-columns: 1fr; }
     footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
   }
@@ -249,104 +279,69 @@
 
 <nav id="navbar">
   <a href="index.html#home" class="nav-logo">
-    <div class="logo-mark">
-      <img src="logo.png" alt="BeUrOwn Logo">
-    </div>
+    <div class="logo-mark"><img src="logo.png" alt="BeUrOwn Logo"></div>
     <span class="nav-wordmark">BeUrOwn</span>
   </a>
-
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html#home">Home</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#shop">Shop</a></li>
     <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
   </ul>
-
-  <div class="hamburger" id="hamburger" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
 <section id="sub-hero">
   <div class="hero-bg"></div>
-
-  <div class="hero-deco-logo">
-    <img src="logo.png" alt="BeUrOwn Watermark">
-  </div>
-
+  <div class="hero-deco-logo"><img src="logo.png" alt="BeUrOwn Watermark"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Cornwall &nbsp;·&nbsp; Khartoum &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; Stylewear</p>
     <h1 class="hero-title">
-      <span>Be</span>
+      <span class="line1">Be</span>
       <span class="line2">Ur</span>
       <div class="line3-container">
-        <span>Own.</span>
+        <span class="own-text">Own.</span>
         <span class="category-tag">Hoodies.</span>
       </div>
     </h1>
-    <p class="hero-sub">
-      Clean fit. Bold message.<br>Designed with intention.
-    </p>
+    <p class="hero-sub">Clean fit. Bold message.<br>Designed with intention.</p>
   </div>
-
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="hero-scroll-line"></div>
-  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="hero-scroll-line"></div></div>
 </section>
 
 <div class="marquee-strip">
   <div class="marquee-inner">
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Self</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Strength</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Persistence</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Belief</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Authenticity</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Power</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Self</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Strength</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Persistence</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Belief</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Authenticity</span><span class="dot">·</span>
-    <span>BeUrOwn</span><span class="dot">·</span>
-    <span>Power</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Self</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Strength</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Persistence</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Belief</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Authenticity</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Power</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Self</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Strength</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Persistence</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Belief</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Authenticity</span><span class="dot">·</span>
+    <span>BeUrOwn</span><span class="dot">·</span><span>Power</span><span class="dot">·</span>
   </div>
 </div>
 
 <section class="categories-section">
   <div class="categories-grid inner-grid">
-    
     <a href="male-hoodies.html" class="product-card">
       <span class="product-card-badge">Collection</span>
       <div class="product-card-icon">H</div>
       <h2 class="product-card-title">Men's Hoodies</h2>
       <p class="product-card-desc">Heavyweight cotton blend engineered for custom-tailored fits and long-lasting durability.</p>
-      <span class="product-card-action">
-        Explore Men's <span class="action-arrow">→</span>
-      </span>
+      <span class="product-card-action">Explore Men's <span class="action-arrow">→</span></span>
     </a>
-
     <a href="female-hoodies.html" class="product-card">
       <span class="product-card-badge">Collection</span>
       <div class="product-card-icon">H</div>
       <h2 class="product-card-title">Women's Hoodies</h2>
       <p class="product-card-desc">Tailored silhouettes and statement comfort designed to empower your presence.</p>
-      <span class="product-card-action">
-        Explore Women's <span class="action-arrow">→</span>
-      </span>
+      <span class="product-card-action">Explore Women's <span class="action-arrow">→</span></span>
     </a>
-
   </div>
 </section>
 
@@ -368,6 +363,5 @@
     nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(26,74,46,0.3)' : 'rgba(245,243,239,0.1)';
   });
 </script>
-
 </body>
 </html>

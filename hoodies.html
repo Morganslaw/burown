@@ -1,78 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoodies — BeUrOwn</title>
-  <!-- Google Fonts required by style.css -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoodies — BeUrOwn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=Playfair+Display:ital,wght@1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Hero subpage adjustments */
+  .sub-hero {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 9rem 2.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .sub-hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 400;
+    line-height: 1;
+    color: var(--white);
+    animation: fadeUp 0.8s 0.2s both;
+  }
+
+  .sub-hero-title span {
+    color: var(--green-accent);
+  }
+
+  .sub-hero-sub {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,243,239,0.5);
+    animation: fadeUp 0.8s 0.4s both;
+  }
+</style>
 </head>
 <body>
 
-  <!-- Signature Global Marquee Strip (Now Above the Cards) -->
-  <div class="marquee-outer-container" style="margin-top: 3rem;">
-    
-    <!-- Hero Scroll Line Indicator -->
-    <div class="hero-scroll-global">
-      <span>Scroll</span>
-      <div class="hero-scroll-global-line"></div>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAqxVeigAqxVeigCxVeiigAooooAKKKKACiiigAoqxVegAooooAKKKsUAFFFFABRRRQAUUVXoAsVXoooAKsUVXoAsUVXooAsVXoooAKsVXqxQAUUVXoAsUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUVXooAsUVXooAsUVXooAsVXoooAKKKKACiiigCxVeiigAooooAKKKKALFV6KKACiiigA0AFFFFABRRRQB//Z" alt="BeUrOwn logo" style="width:100%;height:100%;object-fit:contain;"/>
     </div>
+    <span class="nav-wordmark">BeUrOwn</span>
+  </a>
 
-    <div class="marquee-strip">
-      <div class="marquee-inner">
-        <span>BeUrOwn <span class="dot">·</span> Self</span>
-        <span>BeUrOwn <span class="dot">·</span> Strength</span>
-        <span>BeUrOwn <span class="dot">·</span> Persistence</span>
-        <span>BeUrOwn <span class="dot">·</span> Belief</span>
-        <span>BeUrOwn <span class="dot">·</span> Authenticity</span>
-        <span>BeUrOwn <span class="dot">·</span> Power</span>
-        <span>BeUrOwn <span class="dot">·</span> Self</span>
-        <span>BeUrOwn <span class="dot">·</span> Strength</span>
-        <span>BeUrOwn <span class="dot">·</span> Persistence</span>
-        <span>BeUrOwn <span class="dot">·</span> Belief</span>
-        <span>BeUrOwn <span class="dot">·</span> Authenticity</span>
-        <span>BeUrOwn <span class="dot">·</span> Power</span>
-      </div>
-    </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- SUBPAGE HERO -->
+<section class="sub-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-deco-logo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigAooooAKKKKACiiigA0AFFFFABRRRQB//Z" alt="" style="width:100%;height:100%;object-fit:contain;"/>
   </div>
 
-  <!-- Divider Line Gap between Marquee and Product Cards -->
-  <hr style="border: none; border-bottom: 1px solid var(--border); margin: 0 auto; width: 100%;">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Collection &nbsp;·&nbsp; Stylewear</p>
+    <h1 class="sub-hero-title">BeUrOwn <span>Hoodies.</span></h1>
+    <p class="sub-hero-sub">Clean Fit. Bold Message. Designed With Intention.</p>
+  </div>
+</section>
 
-  <!-- Main Section with Product Cards -->
-  <section class="categories-section">
-    
-    <!-- 2-Column Inner Grid -->
-    <div class="categories-grid inner-grid" style="margin-top: 3rem;">
-      
-      <!-- Men's Hoodies Card -->
-      <a href="male-hoodies.html" class="product-card">
-        <span class="product-card-badge">Collection</span>
-        <div class="product-card-icon">H</div>
-        <h2 class="product-card-title">Men's Hoodies</h2>
-        <p class="product-card-desc">Clean fit. Bold message. Heavyweight cotton with pristine custom-tailored fits.</p>
-        <span class="product-card-action">
-          Explore Men's <span class="action-arrow">→</span>
-        </span>
-      </a>
-
-      <!-- Women's Hoodies Card -->
-      <a href="female-hoodies.html" class="product-card">
-        <span class="product-card-badge">Collection</span>
-        <div class="product-card-icon">H</div>
-        <h2 class="product-card-title">Women's Hoodies</h2>
-        <p class="product-card-desc">Tailored silhouettes and statement comfort designed to empower.</p>
-        <span class="product-card-action">
-          Explore Women's <span class="action-arrow">→</span>
-        </span>
-      </a>
-
+<!-- MARQUEE -->
+<div class="marquee-outer-container">
+  <div class="hero-scroll-global">
+    <span>Scroll</span>
+    <div class="hero-scroll-global-line"></div>
+  </div>
+  <div class="marquee-strip">
+    <div class="marquee-inner">
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Self</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Strength</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Persistence</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Belief</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Authenticity</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Power</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Self</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Strength</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Persistence</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Belief</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Authenticity</span><span class="dot">·</span>
+      <span>BeUrOwn</span><span class="dot">·</span>
+      <span>Power</span><span class="dot">·</span>
     </div>
+  </div>
+</div>
 
-  </section>
+<hr style="border: none; border-bottom: 1px solid var(--border); margin: 0 auto; width: 100%;">
 
+<!-- CATEGORIES SECTION -->
+<section class="categories-section">
+  <div class="categories-grid inner-grid">
+    <a href="male-hoodies.html" class="product-card">
+      <span class="product-card-badge">Collection</span>
+      <div class="product-card-icon">H</div>
+      <h2 class="product-card-title">Men's Hoodies</h2>
+      <p class="product-card-desc">Heavyweight cotton blend engineered for pristine custom-tailored fits and long-lasting durability.</p>
+      <span class="product-card-action">
+        Explore Men's <span class="action-arrow">→</span>
+      </span>
+    </a>
+
+    <a href="female-hoodies.html" class="product-card">
+      <span class="product-card-badge">Collection</span>
+      <div class="product-card-icon">H</div>
+      <h2 class="product-card-title">Women's Hoodies</h2>
+      <p class="product-card-desc">Tailored silhouettes and statement comfort designed to empower your presence.</p>
+      <span class="product-card-action">
+        Explore Women's <span class="action-arrow">→</span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">BeUrOwn</div>
+  <ul class="footer-links">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 BeUrOwn. beurown.co.uk · beurown.com</p>
+</footer>
+
+<script>
+  function toggleNav() { document.body.classList.toggle('nav-open'); }
+</script>
 </body>
 </html>

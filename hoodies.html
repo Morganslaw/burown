@@ -6,7 +6,7 @@
 <title>Hoodies — BeUrOwn</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=Playfair+Display:ital,wght@1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
 <style>
@@ -44,11 +44,6 @@
   .nav-logo {
     display: flex; align-items: center; gap: 0.8rem;
     text-decoration: none;
-  }
-
-  .logo-mark {
-    width: 32px; height: 48px;
-    position: relative; flex-shrink: 0;
   }
 
   .nav-wordmark {
@@ -97,11 +92,13 @@
     transition: all 0.3s;
   }
 
-  /* Subpage Hero Section with Homepage Title Styling */
-  #sub-hero {
-    min-height: 75vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 7rem 2.5rem 4rem;
+  /* Hero Section (Matching Image 1) */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8rem 2.5rem 5rem;
     position: relative;
     overflow: hidden;
   }
@@ -113,23 +110,11 @@
       radial-gradient(ellipse 40% 60% at 20% 80%, rgba(26,74,46,0.1) 0%, transparent 60%);
   }
 
-  .hero-deco-logo {
-    position: absolute;
-    right: -2%;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50vw; max-width: 500px;
-    opacity: 0.04;
-    pointer-events: none;
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
   }
-
-  .hero-deco-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .hero-content { position: relative; z-index: 2; max-width: 820px; }
 
   .hero-eyebrow {
     font-size: 0.82rem;
@@ -137,33 +122,31 @@
     text-transform: uppercase;
     color: var(--green-accent);
     margin-bottom: 1.5rem;
-    animation: fadeUp 0.8s 0.1s both;
   }
 
-  /* Stacked Title matching index page structure */
-  .subpage-hero-title {
+  /* Stacked Calligraphy Title */
+  .hero-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(3.8rem, 10vw, 8.5rem);
+    font-size: clamp(5rem, 13vw, 11rem);
     font-weight: 400;
     line-height: 0.95;
     color: var(--white);
-    animation: fadeUp 0.9s 0.3s both;
   }
 
-  .subpage-hero-title .line2 {
+  .hero-title .line2 {
     display: block;
-    padding-left: 5vw;
+    padding-left: 6vw;
     color: var(--green-accent);
   }
 
-  .subpage-hero-title .line3 {
+  .hero-title .line3 {
     display: block;
     padding-left: 2vw;
   }
 
-  .subpage-hero-title .line4 {
+  .hero-title .line4 {
     display: block;
-    padding-left: 7vw;
+    padding-left: 8vw;
     color: var(--green-accent);
   }
 
@@ -174,12 +157,20 @@
     color: rgba(245,243,239,0.5);
     max-width: 420px;
     line-height: 1.8;
-    animation: fadeUp 0.9s 0.5s both;
+  }
+
+  .hero-sub strong {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--white);
+    display: block;
+    margin-top: 0.5rem;
   }
 
   .hero-scroll {
     position: absolute;
-    bottom: 1.5rem; left: 50%;
+    bottom: 2rem; left: 50%;
     transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
     opacity: 0.4;
@@ -191,7 +182,7 @@
   }
 
   .hero-scroll-line {
-    width: 1px; height: 35px; background: var(--white);
+    width: 1px; height: 40px; background: var(--white);
     animation: scrollLine 2s 2s infinite;
   }
 
@@ -200,11 +191,6 @@
     50% { transform: scaleY(1); transform-origin: top; }
     51% { transform: scaleY(1); transform-origin: bottom; }
     100% { transform: scaleY(0); transform-origin: bottom; }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes pulse {
@@ -245,10 +231,10 @@
     to { transform: translateX(-50%); }
   }
 
-  /* Categories Section & Grid */
+  /* Category Section & Grid */
   .categories-section {
     background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
-    padding: 60px 0;
+    padding: 80px 0;
     width: 100%;
   }
 
@@ -399,9 +385,6 @@
 <!-- NAVIGATION -->
 <nav id="navbar">
   <a href="index.html#home" class="nav-logo">
-    <div class="logo-mark">
-      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigA0AFFFFABRRRQB//Z" alt="BeUrOwn logo" style="width:100%;height:100%;object-fit:contain;"/>
-    </div>
     <span class="nav-wordmark">BeUrOwn</span>
   </a>
 
@@ -417,22 +400,19 @@
   </div>
 </nav>
 
-<!-- SUBPAGE HERO SECTION -->
-<section id="sub-hero">
+<!-- HERO SECTION (MATCHES IMAGE 1 EXACTLY) -->
+<section id="hero">
   <div class="hero-bg"></div>
-
-  <div class="hero-deco-logo">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAYABAADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+F+iiigA0AFFFFABRRRQB//Z" alt="" />
-  </div>
 
   <div class="hero-content">
     <p class="hero-eyebrow">Cornwall &nbsp;·&nbsp; Khartoum &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; Stylewear</p>
-    <h1 class="subpage-hero-title">
+    <h1 class="hero-title">
       Be<span class="line2">Ur</span><span class="line3">Own.</span>
       <span class="line4">Hoodies.</span>
     </h1>
     <p class="hero-sub">
       Clean fit. Bold message.<br>Designed with intention.
+      <strong>BeUrOwn...</strong>
     </p>
   </div>
 
@@ -517,12 +497,6 @@
   function toggleNav() {
     document.body.classList.toggle('nav-open');
   }
-
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.body.classList.remove('nav-open');
-    });
-  });
 
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');

@@ -92,13 +92,13 @@
     transition: all 0.3s;
   }
 
-  /* Hero Section (Matching Image 1) */
-  #hero {
-    min-height: 100vh;
+  /* Hero Section */
+  #sub-hero {
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 8rem 2.5rem 5rem;
+    padding: 7rem 2.5rem 3rem;
     position: relative;
     overflow: hidden;
   }
@@ -121,37 +121,39 @@
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--green-accent);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
   }
 
-  /* Stacked Calligraphy Title */
+  /* Compact Scaled Calligraphy Title */
   .hero-title {
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(5rem, 13vw, 11rem);
+    font-size: clamp(3.5rem, 8vw, 6.5rem); /* Scaled down smaller than index page */
     font-weight: 400;
-    line-height: 0.95;
+    line-height: 1;
     color: var(--white);
   }
 
   .hero-title .line2 {
     display: block;
-    padding-left: 6vw;
+    padding-left: 4vw;
     color: var(--green-accent);
   }
 
-  .hero-title .line3 {
-    display: block;
-    padding-left: 2vw;
+  /* Line 3: Own. + Centered Category Name side by side */
+  .hero-title .line3-container {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
 
-  .hero-title .line4 {
-    display: block;
-    padding-left: 8vw;
+  .hero-title .category-tag {
     color: var(--green-accent);
+    font-size: clamp(3.8rem, 8.5vw, 7rem);
   }
 
   .hero-sub {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     font-size: 0.85rem;
     letter-spacing: 0.08em;
     color: rgba(245,243,239,0.5);
@@ -170,7 +172,7 @@
 
   .hero-scroll {
     position: absolute;
-    bottom: 2rem; left: 50%;
+    bottom: 1.5rem; left: 50%;
     transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
     opacity: 0.4;
@@ -182,7 +184,7 @@
   }
 
   .hero-scroll-line {
-    width: 1px; height: 40px; background: var(--white);
+    width: 1px; height: 35px; background: var(--white);
     animation: scrollLine 2s 2s infinite;
   }
 
@@ -234,7 +236,7 @@
   /* Category Section & Grid */
   .categories-section {
     background: linear-gradient(to top, #06120b 0%, #0a0a0a 40%, #1a4a2e 100%);
-    padding: 80px 0;
+    padding: 60px 0;
     width: 100%;
   }
 
@@ -400,19 +402,22 @@
   </div>
 </nav>
 
-<!-- HERO SECTION (MATCHES IMAGE 1 EXACTLY) -->
-<section id="hero">
+<!-- HERO SECTION -->
+<section id="sub-hero">
   <div class="hero-bg"></div>
 
   <div class="hero-content">
     <p class="hero-eyebrow">Cornwall &nbsp;·&nbsp; Khartoum &nbsp;·&nbsp; Est. 2026 &nbsp;·&nbsp; Stylewear</p>
     <h1 class="hero-title">
-      Be<span class="line2">Ur</span><span class="line3">Own.</span>
-      <span class="line4">Hoodies.</span>
+      <span>Be</span>
+      <span class="line2">Ur</span>
+      <div class="line3-container">
+        <span>Own.</span>
+        <span class="category-tag">Hoodies.</span>
+      </div>
     </h1>
     <p class="hero-sub">
       Clean fit. Bold message.<br>Designed with intention.
-      <strong>BeUrOwn...</strong>
     </p>
   </div>
 
